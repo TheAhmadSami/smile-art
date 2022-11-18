@@ -1,0 +1,25 @@
+.menuItem {
+  cursor: pointer;
+  list-style: none;
+  height: 50px;
+  text-align: right;
+  margin-right: 20px;
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  color: #9e9eaa;
+  align-items: center;
+  justify-content: flex-end;
+
+  &:hover {
+    background-color: rgba(179, 143, 33, 0.1);
+    color: #b38f21;
+  }
+
+  .soon {
+    color: #3dd8b0;
+    background-color: #e5faf5;
+    border-radius: 25px;
+    padding: 5px 10px;
+  }
+}

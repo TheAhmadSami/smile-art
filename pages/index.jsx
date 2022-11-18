@@ -1,9 +1,10 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import styles from '../styles/Home.module.css'
 
-export default function Home() {
+//styles
+import styles from "@sa/styles/Home.module.scss";
 
+const Home = () => {
   const { t } = useTranslation();
 
   return (
@@ -14,7 +15,9 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;
 
 export async function getStaticProps({ locale }) {
   return {
