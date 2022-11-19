@@ -1,8 +1,9 @@
 import React from 'react'
-import styles from "../styles/WorkTimeCard.module.scss";
+import styles from "../styles/components/WorkTimeCard.module.scss";
 const WorkTimeCard = () => {
   return (
-    <div className={styles.worktimeCard}>
+    <div className={styles.workTimeCardContainer}>
+ <div className={styles.worktimeCard}>
       <p className={styles.title}>أوقات العمل</p>
 
       <div className={styles.item}>
@@ -17,6 +18,8 @@ const WorkTimeCard = () => {
 
       <button>اتصل بنا</button>
     </div>
+    </div>
+   
   );
 }
 

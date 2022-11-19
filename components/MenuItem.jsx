@@ -1,13 +1,14 @@
-import Link from "next/link";
 import React from "react";
-import styles from "../styles/MenuItem.module.scss";
-const MenuItem = ({ route, label, icon }) => {
+import Link from "next/link";
+
+//styles
+import styles from "@sa/styles/components/MenuItem.module.scss";
+
+const MenuItem = ({ route, label, icon, mini, active }) => {
   return (
-    <Link href={route}>
-      <div className={styles.menuItem}>
-        <p>{label}</p>
-        <i className={icon}></i>
-      </div>
+    <Link href={route} className={`${styles.menuItem} ${active && styles.active}`}>
+      <i className={icon}></i>
+      {mini || <p>{label}</p>}
     </Link>
   );
 };

@@ -1,6 +1,6 @@
 
 import { appWithTranslation } from "next-i18next";
-import MainLayout from "./MainLayout";
+import MainLayout from "@sa/layouts/MainLayout";
 
 import '@sa/styles/globals.scss'
 
@@ -10,8 +10,6 @@ const MyApp = ({ Component, pageProps }) => {
       <Component {...pageProps} />
     </MainLayout>
   );
-  
-  
   
 }
 

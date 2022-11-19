@@ -1,23 +1,24 @@
+import { useRouter } from 'next/router';
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-//styles
-import styles from "@sa/styles/Home.module.scss";
+//components
+import { SectionTitle } from "@sa/components";
 
-const Home = () => {
+//styles
+import styles from "@sa/styles/pages/Home.module.scss";
+
+const Main = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.container}>
-      <div className="mt-5">
-        <h1>{t("home.Home title")}</h1>
-        <p>{t("home.Home description")}</p>
-      </div>
+    <div className="__page">
+      <SectionTitle title={t('home')}/>
     </div>
   );
 };
 
-export default Home;
+export default Main;
 
 export async function getStaticProps({ locale }) {
   return {

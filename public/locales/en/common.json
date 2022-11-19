@@ -1,14 +1,16 @@
 {
-  "home": {
-    "Home title": "Home title",
-    "Home description": "Home description"
-  },
-  "about": {
-    "About title": "About title",
-    "About description": "About description"
-  },
-  "header": {
-    "Home": "Home",
-    "About": "About"
-  }
+  "home": "Home",
+  "services": "Services",
+  "team": "Our Team",
+  "gallery": "Gallery",
+  "clients": "Testmonials",
+  "contact_us": "Contact Us",
+  "book_now": "Book Now",
+  "call_us": "Call us",
+  "offers": "Offers",
+  "banner_title": "نعمل دائماً من أجل راحتكم",
+  "banner_subtitle": "بادر بالحجز الآن واستمتع بعروض البلاك فريداي",
+  "who_we_are_desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quibusdam adipisci illum doloremque corporis, voluptatum quisquam! Magni odit iste ducimus voluptatum corporis quis dignissimos quibusdam sequi. Dolore temporibus provident itaque!",
+  "dr_magdy_word": "Dr. Magdy word",
+  "dr_magdy_word_desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quibusdam adipisci illum doloremque corporis, voluptatum quisquam! Magni odit iste ducimus voluptatum corporis quis dignissimos quibusdam sequi. Dolore temporibus provident itaque!"
 }

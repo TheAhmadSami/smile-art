@@ -1,0 +1,21 @@
+@import './../mixins';
+
+.banner {
+  width: 826px;
+  min-height: 209px;
+  padding: 30px;
+  justify-content: flex-end;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  .img {
+    width: 306px;
+    height: 280px;
+    position: absolute;
+    left: 0;
+    top: -71px;
+  }
+}
