@@ -15,8 +15,6 @@ const Menu = ({ mini }) => {
   const { t } = useTranslation();
   const router = useRouter();
 
-  console.log(router);
-
   const menuItems = [
     {
       label: "home",

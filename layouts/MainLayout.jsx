@@ -6,6 +6,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 //components
 import { Menu, SocialMedia } from "@sa/components";
 import assets from "@sa/assets";
+import Link from "next/link";
 
 const MainLayout = ({ children }) => {
   const router = useRouter();
@@ -49,6 +50,9 @@ const MainLayout = ({ children }) => {
                   {t(item.title)}
                 </div>
               ))}
+              <Link href={router.locale + "/home"} className='pill'>
+                {t('more')}
+              </Link>
             </div>
 
             {info.map((item, i) => (

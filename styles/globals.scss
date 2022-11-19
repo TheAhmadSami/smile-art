@@ -145,6 +145,13 @@ body {
           color: #ffffff;
           border-radius: 150px;
           cursor: pointer;
+          @include transition;
+          white-space: nowrap;
+
+          &:hover {
+            background: #fff;
+            color: #222222;
+          }
 
           &.active {
             background: #fff;
@@ -153,22 +160,22 @@ body {
         }
       }
 
-      .content{
+      .content {
         display: none;
 
-        .title{
+        .title {
           font-size: 40px;
           font-weight: 700;
           color: #fff;
           margin-bottom: 20px;
         }
 
-        .desc{
+        .desc {
           color: #fff;
           line-height: 1.7
         }
-        
-        &.active{
+
+        &.active {
           @include flex-start-center;
         }
       }
