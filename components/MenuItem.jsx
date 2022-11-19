@@ -6,9 +6,14 @@ import styles from "@sa/styles/components/MenuItem.module.scss";
 
 const MenuItem = ({ route, label, icon, mini, active }) => {
   return (
-    <Link href={route} className={`${styles.menuItem} ${active && styles.active}`}>
+    <Link
+      href={route}
+      className={`${styles.menuItem} ${mini && styles.mini} ${
+        active && styles.active
+      }`}
+    >
       <i className={icon}></i>
-      {mini || <p>{label}</p>}
+      <p>{label}</p>
     </Link>
   );
 };
