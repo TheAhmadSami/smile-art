@@ -5,14 +5,24 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { SectionTitle } from "@sa/components";
 
 //styles
-import styles from "@sa/styles/pages/Home.module.scss";
+import styles from "@sa/styles/pages/Gallery.module.scss";
+import assets from "@sa/assets";
 
 const Gallery = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="__page">
-      <SectionTitle title={t('home')}/>
+    <div id={styles["gallery"]} className="__page">
+      <SectionTitle title={t("gallery")} />
+
+      <div className={styles.content}>
+        <img src={assets.teamOne.src} className={styles["img"]} alt="r" />
+        <img src={assets.teamOne.src} className={styles["img"]} alt="r" />
+        <img src={assets.teamOne.src} className={styles["img"]} alt="r" />
+        <img src={assets.teamOne.src} className={styles["img"]} alt="r" />
+        <img src={assets.teamOne.src} className={styles["img"]} alt="r" />
+        <img src={assets.teamOne.src} className={styles["img"]} alt="r" />
+      </div>
     </div>
   );
 };
