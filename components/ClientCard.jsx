@@ -7,16 +7,11 @@ import styles from "@sa/styles/components/ClientCard.module.scss";
 const ClientCard = ({ title, description, image }) => {
   return (
     <div className={styles["review-card"]}>
-   
       <div className={styles["content"]}>
-        <div className={styles["client-name"]}>أحمد مجدي</div>
-        <div className={styles["client-review"]}>
-          هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي
-          القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة
-          التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي
-        </div>
+        <div className={styles["client-name"]}>{title}</div>
+        <div className={styles["client-review"]}>{description}</div>
       </div>
-      <div className={styles["img"]}></div>
+      <Image src={image} alt="hi" className={styles["img"]} width='170' height='170'/>
     </div>
   );
 };
