@@ -9,6 +9,9 @@ import serviceFour from "./media/service4.png";
 import teamBanner from "./media/team-banner.png";
 import teamOne from "./media/team1.png";
 import teamTwo from "./media/team2.png";
+import gallery1 from "./media/1.jpg";
+import gallery2 from "./media/2.jpg";
+import gellery3 from "./media/3.jpg";
 
 export default {
   mainBannerImage,
@@ -21,4 +24,7 @@ export default {
   teamBanner,
   teamOne,
   teamTwo,
+  gallery1,
+  gallery2,
+  gellery3,
 };
