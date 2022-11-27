@@ -4,7 +4,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 //components
-import { Menu, SocialMedia } from "@sa/components";
+import { FacebookFeed, FeedVideo, Menu, SocialMedia } from "@sa/components";
 import assets from "@sa/assets";
 import Link from "next/link";
 
@@ -50,8 +50,8 @@ const MainLayout = ({ children }) => {
                   {t(item.title)}
                 </div>
               ))}
-              <Link href={router.locale + "/home"} className='pill'>
-                {t('more')}
+              <Link href={router.locale + "/home"} className="pill">
+                {t("more")}
               </Link>
             </div>
 
@@ -85,8 +85,8 @@ const MainLayout = ({ children }) => {
         <div id="__body">
           <div id="__body-content">{children}</div>
           <div id="__feed">
-            <div id="feed-video">video</div>
-            <div id="facebook-feed">facebook</div>
+            <FeedVideo />
+            <FacebookFeed />
           </div>
         </div>
       )}
