@@ -82,7 +82,7 @@ body {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: top;
+        object-position: center;
         overflow: hidden;
       }
     }
@@ -172,7 +172,8 @@ body {
 
         .desc {
           color: #fff;
-          line-height: 1.7
+          line-height: 1.7;
+          width: 80%;
         }
 
         &.active {
