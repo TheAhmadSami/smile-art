@@ -1,8 +1,8 @@
 import React from "react";
+import Image from "next/image";
 
 //styles
 import styles from "@sa/styles/components/ModalImage.module.scss";
-import Image from "next/image";
 
 function ModalImage({ image, name, onClick }) {
   return (
