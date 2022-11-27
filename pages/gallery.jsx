@@ -8,7 +8,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ModalImage, SectionTitle } from "@sa/components";
 
 //data
-import galleryData from "@sa/fakeData/gallery";
+import galleryData from "@sa/feakers/gallery";
 
 //styles
 import styles from "@sa/styles/pages/Gallery.module.scss";

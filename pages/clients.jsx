@@ -5,7 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ClientCard, SectionTitle } from "@sa/components";
 
 //data
-import clientData from "@sa/fakeData/clients";
+import clientData from "@sa/feakers/clients";
 
 //styles
 import styles from "@sa/styles/pages/Client.module.scss";

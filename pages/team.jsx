@@ -4,83 +4,37 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 //components
 import { Banner, SectionTitle, CustomCard } from "@sa/components";
 
+//data
+import TeamData from "@sa/feakers/teams";
+
 //styles
 import styles from "@sa/styles/pages/Team.module.scss";
 import assets from "@sa/assets";
 
 const Team = () => {
   const { t } = useTranslation();
-
-  const data = [
-    {
-      id: 1,
-      title: "أحمد مجدي",
-      image: assets.teamOne.src,
-      description: "الزمالة البريطانية في طب الأسنان من جامعة لندن",
-    },
-    {
-      id: 2,
-      title: "أحمد مجدي",
-      image: assets.teamTwo.src,
-      description: "الزمالة البريطانية في طب الأسنان من جامعة لندن",
-    },
-    {
-      id: 3,
-      title: "أحمد مجدي",
-      image: assets.teamOne.src,
-      description: "الزمالة البريطانية في طب الأسنان من جامعة لندن",
-    },
-    {
-      id: 4,
-      title: "أحمد مجدي",
-      image: assets.teamTwo.src,
-      description: "الزمالة البريطانية في طب الأسنان من جامعة لندن",
-    },
-    {
-      id: 5,
-      title: "أحمد مجدي",
-      image: assets.teamOne.src,
-      description: "الزمالة البريطانية في طب الأسنان من جامعة لندن",
-    },
-    {
-      id: 6,
-      title: "أحمد مجدي",
-      image: assets.teamTwo.src,
-      description: "الزمالة البريطانية في طب الأسنان من جامعة لندن",
-    },
-    {
-      id: 7,
-      title: "أحمد مجدي",
-      image: assets.teamOne.src,
-      description: "الزمالة البريطانية في طب الأسنان من جامعة لندن",
-    },
-    {
-      id: 8,
-      title: "أحمد مجدي",
-      image: assets.teamTwo.src,
-      description: "الزمالة البريطانية في طب الأسنان من جامعة لندن",
-    },
-  ];
+  const mystyle = "linear-gradient(267.04deg, #5F818C, #98B8C0)";
 
   return (
     <div id={styles.team} className="__page">
       <SectionTitle title={t("team")} />
       <Banner
-        background="linear-gradient(267.04deg, #5f818c 4.86%, #98b8c0 96.66%);"
+        background="#5F818C"
         image={assets.teamBanner.src}
-        title="فريق عمل سمايل آرت"
-        subtitle="فريق متخصص يعما دائما من أجل راحتكم"
+        title={t("team_banner_title")}
+        subtitle={t("team_banner_subtitle")}
       />
-      <SectionTitle title="أفراد الفريق" />
+
+      <SectionTitle title={t("team_members")} />
 
       <div className={styles.servicesDetails}>
-        {data?.map((service, index) => {
+        {TeamData?.map((team, index) => {
           return (
             <CustomCard
               key={index}
-              title={service.title}
-              image={service.image}
-              description={service.description}
+              title={team.title}
+              image={team.image}
+              description={team.description}
             />
           );
         })}

@@ -12,7 +12,7 @@ const Booking = () => {
 
   return (
     <div className="__page">
-      <SectionTitle title={t('home')}/>
+      <SectionTitle title={t('book_now')}/>
     </div>
   );
 };
