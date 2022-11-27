@@ -6,4 +6,7 @@ export { default as SocialMedia } from "./SocialMedia";
 export { default as CustomCard } from "./CustomCard";
 export { default as Banner } from "./Banner";
 export { default as ClientCard } from "./ClientCard";
+export { default as FeedVideo } from "./FeedVideo";
+export { default as FacebookFeed } from "./FacebookFeed";
+export { default as ModalImage } from "./ModalImage";
 
