@@ -4,19 +4,30 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 //components
 import { ClientCard, SectionTitle } from "@sa/components";
 
+//data
+import clientData from "@sa/fakeData/clients";
+
 //styles
-import styles from "@sa/styles/pages/Home.module.scss";
+import styles from "@sa/styles/pages/Client.module.scss";
 
 const Clients = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="__page">
+    <div id={styles.client} className="__page">
       <SectionTitle title={t("clients")} />
-      <ClientCard
-        title="أحمد مجدي"
-        description="هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي"
-      />
+      <div className={styles.servicesDetails}>
+        {clientData?.map((client, index) => {
+          return (
+            <ClientCard
+              key={index}
+              title={client.title}
+              description={client.description}
+              image={client.Image}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
