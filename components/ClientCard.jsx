@@ -7,7 +7,7 @@ import styles from "@sa/styles/components/ClientCard.module.scss";
 const ClientCard = ({ title, description, image }) => {
   return (
     <div className={styles["review-card"]}>
-      <div className={styles["img"]}></div>
+   
       <div className={styles["content"]}>
         <div className={styles["client-name"]}>أحمد مجدي</div>
         <div className={styles["client-review"]}>
@@ -16,6 +16,7 @@ const ClientCard = ({ title, description, image }) => {
           التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي
         </div>
       </div>
+      <div className={styles["img"]}></div>
     </div>
   );
 };
