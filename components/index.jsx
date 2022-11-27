@@ -9,4 +9,5 @@ export { default as ClientCard } from "./ClientCard";
 export { default as FeedVideo } from "./FeedVideo";
 export { default as FacebookFeed } from "./FacebookFeed";
 export { default as ModalImage } from "./ModalImage";
+export { default as TextInput } from "./TextInput";
 
