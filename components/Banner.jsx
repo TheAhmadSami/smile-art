@@ -13,9 +13,7 @@ const Banner = ({
   background,
   backgroundImage,
 }) => {
-
   return (
-   
     <div
       className={styles.banner}
       style={{
@@ -26,6 +24,8 @@ const Banner = ({
         backgroundPosition: "center",
       }}
     >
+      {backgroundImage && <div className={styles.test}></div>}
+
       {title2 && <h1 className="title">{title2}</h1>}
       <h1>{title}</h1>
       <h4>{subtitle}</h4>

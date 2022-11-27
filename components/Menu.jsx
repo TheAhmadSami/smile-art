@@ -10,6 +10,8 @@ import assets from "@sa/assets";
 
 //styles
 import styles from "@sa/styles/components/Menu.module.scss";
+import Link from "next/link";
+import Image from "next/image";
 
 const Menu = ({ mini }) => {
   const { t } = useTranslation();
@@ -63,9 +65,16 @@ const Menu = ({ mini }) => {
   return (
     <div id={styles.menu} className={mini ? styles.mini : null}>
       {mini || (
-        <div className={styles.logo}>
-          <img src={assets.logo.src} />
-        </div>
+        <Link href={`${router.locale}/home`} className={styles.logo}>
+          <Image
+            src={assets.logo.src}
+            width="0"
+            height="0"
+            sizes="100vw"
+            style={{ height: "auto", width: "70%" }}
+            alt="logo"
+          />
+        </Link>
       )}
 
       <ul className={styles.menuList}>
