@@ -12,6 +12,7 @@ import galleryData from "@sa/fakeData/gallery";
 
 //styles
 import styles from "@sa/styles/pages/Gallery.module.scss";
+import Image from "next/image";
 
 const Gallery = () => {
   const { t } = useTranslation();
@@ -34,13 +35,15 @@ const Gallery = () => {
       <div className={styles.content}>
         {galleryData?.map((image, index) => {
           return (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+           
+            <Image
               key={index}
               src={image.Image}
               className={styles["img"]}
               alt="r"
               onClick={() => getImage(image.id)}
+              width={250}
+              height={250}
             />
           );
         })}
