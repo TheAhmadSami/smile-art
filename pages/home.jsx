@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -12,8 +12,8 @@ const Home = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="__page">
-      <SectionTitle title={t('home')}/>
+    <div id={styles.home} className="__page">
+      <SectionTitle title={t("home")} />
     </div>
   );
 };
