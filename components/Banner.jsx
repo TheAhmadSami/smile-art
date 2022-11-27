@@ -13,7 +13,9 @@ const Banner = ({
   background,
   backgroundImage,
 }) => {
+
   return (
+   
     <div
       className={styles.banner}
       style={{
