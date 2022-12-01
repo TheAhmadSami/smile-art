@@ -1,10 +1,13 @@
+/* eslint-disable @next/next/no-title-in-document-head */
 import { Html, Head, Main, NextScript } from "next/document";
 
 const Document = (props) => {
 
   return (
     <Html dir={props.locale === "ar" ? "rtl" : "ltr"} lang={props.locale}>
-      <Head></Head>
+      <Head>
+        <title>Smile Art</title>
+      </Head>
       <body>
         <Main />
         <NextScript />

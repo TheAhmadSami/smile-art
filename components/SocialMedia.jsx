@@ -4,7 +4,7 @@ import React from "react";
 import styles from "@sa/styles/components/SocialMedia.module.scss";
 import Link from "next/link";
 
-const SocialMedia = () => {
+const SocialMedia = ({ float }) => {
   const socialLinks = [
     {
       icon: "fab fa-facebook-f",
@@ -34,18 +34,20 @@ const SocialMedia = () => {
   ];
 
   return (
-    <div className={styles.socialMedia}>
-      {socialLinks.map((link, i) => (
-        <Link
-          href={link.href}
-          key={i}
-          className={styles.socialIcon}
-          style={{ background: link.bgColor }}
-          target="_blank"
-        >
-          <i className={link.icon}></i>
-        </Link>
-      ))}
+    <div className={`${styles.socialMediaContainer} ${float && styles.float}`}>
+      <div className={styles.socialMedia}>
+        {socialLinks.map((link, i) => (
+          <Link
+            href={link.href}
+            key={i}
+            className={styles.socialIcon}
+            style={{ background: link.bgColor }}
+            target="_blank"
+          >
+            <i className={link.icon}></i>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

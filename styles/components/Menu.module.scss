@@ -21,6 +21,10 @@
     }
 
   }
+  
+  &:dir(ltr) {
+    border-radius: 0;
+  }
 
   ul {
     width: 100%;

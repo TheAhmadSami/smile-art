@@ -2,11 +2,10 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Link from "next/link";
 
 //components
 import { FacebookFeed, FeedVideo, Menu, SocialMedia } from "@sa/components";
-import assets from "@sa/assets";
-import Link from "next/link";
 
 const MainLayout = ({ children }) => {
   const router = useRouter();
@@ -69,7 +68,7 @@ const MainLayout = ({ children }) => {
             ))}
           </div>
 
-          <SocialMedia />
+          <SocialMedia float />
 
           <div className="video-container">
             <video
@@ -85,6 +84,7 @@ const MainLayout = ({ children }) => {
         <div id="__body">
           <div id="__body-content">{children}</div>
           <div id="__feed">
+            <SocialMedia />
             <FeedVideo />
             <FacebookFeed />
           </div>

@@ -5,7 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Banner, SectionTitle, CustomCard } from "@sa/components";
 
 //data
-import TeamData from "@sa/feakers/teams";
+import TeamData from "@sa/fakers/teams";
 
 //styles
 import styles from "@sa/styles/pages/Team.module.scss";
@@ -20,7 +20,7 @@ const Team = () => {
       <SectionTitle title={t("team")} />
       <Banner
         background="#5F818C"
-        image={assets.teamBanner.src}
+        image={assets.teamBanner}
         title={t("team_banner_title")}
         subtitle={t("team_banner_subtitle")}
       />

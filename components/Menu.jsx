@@ -65,7 +65,7 @@ const Menu = ({ mini }) => {
   return (
     <div id={styles.menu} className={mini ? styles.mini : null}>
       {mini || (
-        <Link href={`${router.locale}/home`} className={styles.logo}>
+        <Link href={`${router.locale}`} className={styles.logo}>
           <Image
             src={assets.logo.src}
             width="0"

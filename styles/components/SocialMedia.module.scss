@@ -1,22 +1,28 @@
 @import './../mixins';
 
-.socialMedia {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  @include flex-center-center;
-  gap: 10px;
+.socialMediaContainer {
   z-index: 5;
-  direction: ltr;
 
-  .socialIcon {
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
+  &.float {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .socialMedia {
     @include flex-center-center;
+    gap: 10px;
+    direction: ltr;
 
-    i{
-      color: #ffffff
+    .socialIcon {
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+      @include flex-center-center;
+
+      i {
+        color: #ffffff
+      }
     }
   }
 }

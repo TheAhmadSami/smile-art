@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Image from "next/image";
 
 //styles
 import styles from "@sa/styles/components/ModalImage.module.scss";
@@ -7,13 +7,10 @@ import styles from "@sa/styles/components/ModalImage.module.scss";
 function ModalImage({ image, name, onClick }) {
   return (
     <div id={styles.ModalImage} onClick={onClick}>
-      <Image
+      <img
         src={image}
         alt={name}
-        width="0"
-        height="0"
-        sizes="100vw"
-        style={{ height: "80%", width: "auto" }}
+        style={{ width: '70%' }}
       />
     </div>
   );

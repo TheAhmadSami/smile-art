@@ -5,40 +5,48 @@
   min-height: 300px;
   padding: 30px;
   justify-content: flex-end;
-  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   position: relative;
   margin-top: 30px;
   margin-bottom: 30px;
+  position: relative;
+  z-index: 5;
+  background: linear-gradient(267.04deg, #5F818C 4.86%, #98B8C0 96.66%);
 
-  h1 {
-    font-weight: 600;
-    font-size: 30px;
-    color: #ffffff;
+
+  .info {
+    z-index: 5;
+
+    h1 {
+      font-weight: 600;
+      font-size: 30px;
+      color: #ffffff;
+    }
+
+    h4 {
+      font-weight: 400;
+      font-size: 20px;
+      color: #ffffff;
+    }
   }
 
-  h4 {
-    font-weight: 400;
-    font-size: 20px;
-    color: #ffffff;
-  }
-
-  .img {
-    width: 306px;
-    height: 280px;
+  .imageContainer {
     position: absolute;
-    left: 0;
-    bottom: 0;
-  }
+    left: 30px;
+    bottom: 0px;
+    height: 115%;
 
-  .test{
-    background-color: rgba(255, 0, 0, 0.24);
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    right: 0;
-    border-radius: 12px;
-    z-index: 1;
+    .image {
+      height: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .banner {
+    .imageContainer {
+      display: none;
+    }
   }
 }

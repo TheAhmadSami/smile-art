@@ -17,9 +17,9 @@ const Home = () => {
     <div id={styles.home} className="__page">
       <SectionTitle title={t("home")} />
       <Banner
-      title2={t('offers')}
-      background="#5F818C"
-        image={assets.teamBanner.src}
+        title2={t("offers")}
+        background="#5F818C"
+        image={assets.mainBanner}
         title={t("home_banner_title")}
         subtitle={t("home_banner_subtitle")}
       />

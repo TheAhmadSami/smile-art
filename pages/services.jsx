@@ -2,10 +2,10 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 //components
-import { SectionTitle, CustomCard } from "@sa/components";
+import { SectionTitle, CustomCard, BannerBg } from "@sa/components";
 
 //data
-import ServicesData from "@sa/feakers/services";
+import ServicesData from "@sa/fakers/services";
 
 //styles
 import styles from "@sa/styles/pages/Services.module.scss";
@@ -18,7 +18,7 @@ const Services = () => {
   return (
     <div id={styles.Services} className="__page">
       <SectionTitle title={t("services")} />
-      <Banner
+      <BannerBg
         backgroundImage={assets.servicesBg.src}
         title={t("services_banner_title")}
         subtitle={t("services_banner_subtitle")}
