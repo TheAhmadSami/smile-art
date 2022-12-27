@@ -1,61 +1,91 @@
-import React, { useState } from "react";
+/* eslint-disable @next/next/no-img-element */
+import React, { useState, useEffect} from "react";
+import { Button, Modal, TextField } from "@mui/material";
+import SimpleImageSlider from "react-simple-image-slider";
+import {get} from '@sa/utils/axios'
 
 //translation
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 //components
-import { ModalImage, SectionTitle } from "@sa/components";
-
-//data
-import galleryData from "@sa/fakers/gallery";
+import {SectionTitle } from "@sa/components";
 
 //styles
 import styles from "@sa/styles/pages/Gallery.module.scss";
-import Image from "next/image";
 
 const Gallery = () => {
   const { t } = useTranslation();
+  const [gallery, setGallery] = useState(false);
+  const [imageModal, setImageModal] = useState(false);
+  const [image, setImage] = useState("");
 
-  const [visible, setVisible] = useState(false);
-  const [image, setImage] = useState(null);
-
-  const getImage = (id) => {
-    console.log("hi");
-    let image = galleryData.filter((el) => el.id === id);
-    console.log(image[0]);
-
-    setVisible(true);
-    setImage(image[0]);
+  const loadGallery = async () => {
+    get("/gallery").then((res) => {
+      setGallery(res.data);
+    });
   };
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(event.target.files[0]);
+    }
+  };
+
+  const addToGallery = () => {
+    let data = new FormData();
+    data.append("image", image);
+
+    post("/gallery", data).then((res) => {
+      closeModal();
+      loadGallery();
+    });
+  };
+
+  const closeModal = () => {
+    setImage(null);
+    setModalStatus(false);
+  };
+
+  useEffect(() => {
+    loadGallery();
+  }, []);
+  
   return (
     <div id={styles["gallery"]} className="__page">
       <SectionTitle title={t("gallery")} />
 
       <div className={styles.content}>
-        {galleryData?.map((image, index) => {
-          return (
-           
-            <Image
-              key={index}
-              src={image.Image}
-              className={styles["img"]}
-              alt="r"
-              onClick={() => getImage(image.id)}
-              width={250}
-              height={250}
-            />
-          );
-        })}
+         {gallery.length > 0 &&
+          gallery?.map((item, index) => {
+            return (
+              <img
+                key={index}
+                src={item?.url}
+                className={styles.img}
+                alt="Smile Art"
+                onClick={() => setImageModal(true)}
+              />
+            );
+          })}
       </div>
 
-      {visible && (
-        <ModalImage
-          onClick={() => setVisible(false)}
-          name={image.name}
-          image={image.Image}
-        />
-      )}
+      <Modal
+        open={imageModal}
+        onClose={() => setImageModal(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <div className="imageSliderContainer">
+          <SimpleImageSlider
+            width={1920 / 2.5}
+            height={1080 / 2.5}
+            images={gallery}
+            showBullets={true}
+            showNavs={true}
+          />
+        </div>
+      </Modal>
     </div>
   );
 };

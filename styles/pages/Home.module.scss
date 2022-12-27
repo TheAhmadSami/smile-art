@@ -1,5 +1,8 @@
 @import "./../mixins";
 
 #home {
- 
+  .services{
+    @include flex-start-start;
+    gap: 20px;
+  }
 }

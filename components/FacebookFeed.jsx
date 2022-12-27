@@ -1,8 +1,7 @@
 import React from "react";
-
-
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { FacebookProvider, Page } from 'react-facebook';
 
 
 
@@ -18,8 +17,10 @@ const FacebookFeed = () => {
           <i className="fab fa-facebook"></i>
           <h1 className={styles.title}>{t("facebookfeed")}</h1>
         </div>
-        <h6 className={styles.subtitle}>{t("view_more")}</h6>
       </div>
+      <FacebookProvider appId="843984503317267">
+        <Page href="https://www.facebook.com/SmileArtDrmagdy" tabs="timeline" />
+      </FacebookProvider>
     </div>
   );
 };
