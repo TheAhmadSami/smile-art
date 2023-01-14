@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Anton';
+  font-weight: 400;
+  src: url('Anton.woff2') format('woff2'),
+    url('Anton.woff') format('woff');
+}
+
+.anton-font {
+  font-family: 'Anton';
+}
