@@ -16,12 +16,12 @@ const Document = (props) => {
 
         <link rel="shortcut icon" href="_code_/logo.ico" type="image/x-icon" />
 
-        <link rel="canonical" href="http://www.alola-eg.com/" />
+        <link rel="canonical" href="http://www.smileart-eg.com/" />
 
         <meta property="og:type" content="Website" />
         <meta property="og:title" content="" />
         <meta property="og:description" content="" />
-        <meta property="og:url" content="http://www.alola-eg.com/" />
+        <meta property="og:url" content="http://www.smileart-eg.com/" />
         <meta
           property="og:site_name"
           content="Arabesque Decoration Contracting LLC."
@@ -58,7 +58,7 @@ const Document = (props) => {
           name="twitter:description"
           content="Al Ola Business Services is a full-service provider for information management, specializing in large scale document scanning and conversion services. We have provided professional digitization services for the top companies in Egypt"
         />
-        <meta name="twitter:url" content="http://www.alola-eg.com/" />
+        <meta name="twitter:url" content="http://www.smileart-eg.com/" />
         <meta
           name="twitter:image"
           content="http://alola-eg.com/_code_/media/website_image.png"

@@ -145,6 +145,11 @@ body {
   background-color: $dark;
 }
 
+#__next{
+  width: 100%;
+  height: 100vh;
+}
+
 .body-content {
   position: relative;
   width: 100%;
@@ -422,7 +427,8 @@ section {
 #header {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  margin-bottom: 300px;
   z-index: 10;
 
   .menu {
@@ -624,7 +630,7 @@ section {
     position: relative;
     z-index: 9;
     width: 100%;
-    height: 100%;
+    height: 650px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
