@@ -1,0 +1,9 @@
+@import './../mixins';
+
+.servicesDetails {
+  width: 100%;
+  @include flex-start-center;
+  @include flex-wrap;
+  gap: 15px;
+  margin: 20px 0;
+}

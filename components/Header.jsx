@@ -1,146 +1,39 @@
 import React from 'react'
-import { FacebookFeed, InstagramFeed } from '.';
+import { FacebookFeed, InstagramFeed, Menu } from '.';
 
 //styles
 import styles from "@sa/styles/components/Header.module.scss";
+import { useTranslation } from 'next-i18next';
 
 const Header = () => {
+
+  const [t] = useTranslation();
+
   return (
     <section id="header">
-      <div className="menu">
-        <a href="http://www.smileart-eg.com" className="main-logo">
-          <img src="_code_/media/logo.png" alt="" />
-        </a>
-        <div className="_menu_">
-          <div className="menu-item">
-            <a href="#header" className="active">
-              Home
-            </a>
-          </div>
-          <div className="menu-item sub-menu">
-            <a className="submenu-toggle" href>
-              About&nbsp;Us
-            </a>
-            <div className="_sub-menu_">
-              <p>
-                <span>
-                  <a href id="about" className="_km_">
-                    About Us
-                  </a>
-                </span>
-                <span>
-                  <a href id="mission" className="_km_">
-                    Our Mission
-                  </a>
-                </span>
-                <span>
-                  <a href id="vision" className="_km_">
-                    Our Vision
-                  </a>
-                </span>
-                <span>
-                  <a href id="values" className="_km_">
-                    Values
-                  </a>
-                </span>
-              </p>
-            </div>
-          </div>
-          <div className="menu-item">
-            <a href="#partners">Partners</a>
-          </div>
-          <div className="menu-item">
-            <a href="#services">Services</a>
-          </div>
-          <div className="menu-item sub-menu">
-            <a className="submenu-toggle" href="#products">
-              Products
-            </a>
-            <div className="_sub-menu_">
-              <p>
-                <span>
-                  <a company="image-access">image access</a>
-                </span>
-                <span>
-                  <a company="scantron">scantron</a>
-                </span>
-                <span>
-                  <a company="addmen">addmen</a>
-                </span>
-                <span>
-                  <a company="avision">avision</a>
-                </span>
-                <span>
-                  <a company="xerox">xerox</a>
-                </span>
-                <span>
-                  <a company="fujitsu">fujitsu</a>
-                </span>
-                <span>
-                  <a company="agi">agi</a>
-                </span>
-                <span>
-                  <a company="indus">indus</a>
-                </span>
-                <span>
-                  <a company="crowley">crowley</a>
-                </span>
-                <span>
-                  <a company="datawin">datawin</a>
-                </span>
-              </p>
-            </div>
-          </div>
-          <div className="menu-item logo">
-            <a href="http://www.smileart-eg.com">
-              <img src="_code_/media/logo.png" alt="" />
-            </a>
-          </div>
-          <div className="menu-item">
-            <a href="#clients">Clients</a>
-          </div>
-          <div className="menu-item">
-            <a href="#awards">Awards</a>
-          </div>
-          <div className="menu-item">
-            <a href="#projects">Projects</a>
-          </div>
-          <div className="menu-item">
-            <a href="#news">News</a>
-          </div>
-          <div className="menu-item">
-            <a href="#contact">Contact&nbsp;Us</a>
-          </div>
-        </div>
-        <div className="menu-toggle">
-          <i />
-        </div>
-      </div>
+      <Menu />
 
       <div className="header-content">
         <p className="header-title">
-          Smile Art Modern Systems,
-          <br />a leading company since 1986
+          Smile Art Clinic,
+          <br />a leading dentists since 1999
         </p>
-        <p className="header-desc">
-          Smile Art was founded to provide local and regional market with
-          software and hardware solutions in fields of imaging solution,
-          archiving, microfilms, education, item banking, printing and scanning.
-        </p>
+        <p className="header-desc">{t("who_we_are_desc")}</p>
         <div className="header-buttons">
-          <button id="know_more_btn">
-            <i className="fas fa-info-circle" /> Know More
-          </button>
-          <button id="ceo_voice_btn">
-            <i className="fas fa-user-tie" /> Voice of CEO
-          </button>
+          <a href="#contact">
+            <i className="fas fa-info-circle" /> {t("contact_us")}
+          </a>
+          <a id="ceo_voice_btn">
+            <i className="fas fa-user-tie" /> Voice of of Dr. Magdy
+          </a>
         </div>
       </div>
 
-      <div id={styles.feedsContainer}>
+      <div id="feed" className={styles.feedsContainer}>
         <FacebookFeed />
         <InstagramFeed />
       </div>
+
       <div className="header-video">
         <video
           className="sample-video"
@@ -153,9 +46,15 @@ const Header = () => {
           <div id="player" />
         </div>
       </div>
-      <div id="play_video">
+
+      <a
+        id="play_video"
+        href="https://www.youtube.com/channel/UCpsL8K_LKaA1Gz-Q8R6a0qA?sub_confirmation=1"
+        target="_blank"
+        rel="noreferrer"
+      >
         <i className="fas fa-play" />
-      </div>
+      </a>
       <div id="close_video">
         <i className="fas fa-times" />
       </div>

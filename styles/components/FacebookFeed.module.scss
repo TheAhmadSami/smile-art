@@ -1,8 +1,10 @@
 #facebookFeed {
   background: #fff;
   height: 100%;
+  width: 300px;
   border-radius: 15px;
   padding: 10px;
+  overflow: hidden;
 
   .row {
     display: flex;

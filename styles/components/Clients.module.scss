@@ -1,0 +1,25 @@
+@import './../mixins';
+
+#clients {
+  img {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    margin-left: 100px;
+    left: 516px;
+    top: 86px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+
+  .viewMore {
+    width: 150px;
+    height: 150px;
+    display: flex !important;
+    @include flex-center-center;
+    cursor: pointer;
+    background: #fff;
+    text-align: center;
+    border-radius: 16px;
+  }
+}

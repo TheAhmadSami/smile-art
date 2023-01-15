@@ -1,0 +1,23 @@
+@import './../mixins';
+
+#contacts {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  
+  .item{
+    width: 32px;
+    height: 32px;
+    @include flex-center-center;
+    color: #fff;
+    opacity: 0.5;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+}

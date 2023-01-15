@@ -1,3 +1,10 @@
 export { default as Header } from "./Header";
 export { default as FacebookFeed } from "./FacebookFeed";
 export { default as InstagramFeed } from "./InstagramFeed";
+export { default as Menu } from "./Menu";
+export { default as Services } from "./Services";
+export { default as CustomCard } from "./CustomCard";
+export { default as Team } from "./Team";
+export { default as Gallery } from "./Gallery";
+export { default as Clients } from "./Clients";
+export { default as SocialContacts } from "./SocialContacts";

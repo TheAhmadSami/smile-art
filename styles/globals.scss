@@ -1,5 +1,4 @@
-/* fonts ***********************************************/
-/* WARNING :--- DO NOT DELETE "webfonts" FOLDER --- */
+@import './config.scss';
 
 $roboto: 'Roboto';
 $proxima: 'Proxima Nova';
@@ -9,7 +8,7 @@ $cairo: 'Cairo';
 $frutiger: 'Frutiger';
 
 /* OTHER VARIABLES ***********************************************/
-$menuWidth: 1100px;
+$menuWidth: 850px;
 
 
 /* COLORS CODES ***********************************************/
@@ -145,7 +144,7 @@ body {
   background-color: $dark;
 }
 
-#__next{
+#__next {
   width: 100%;
   height: 100vh;
 }
@@ -428,6 +427,7 @@ section {
   position: relative;
   width: 100%;
   height: 100vh;
+  min-height: 650px;
   margin-bottom: 300px;
   z-index: 10;
 
@@ -469,6 +469,7 @@ section {
       .menu-item {
         margin: 0px 10px;
         z-index: 5;
+        white-space: nowrap;
 
         a {
           display: block;
@@ -656,7 +657,7 @@ section {
     }
 
     .header-buttons {
-      button {
+      a {
         border: none;
         outline: none;
         color: $light;
@@ -667,7 +668,7 @@ section {
         font-size: 14px;
         box-shadow: 0 0 0px fade($primary, 70%);
         @include transition2ms;
-        ;
+        cursor: pointer;
 
         &:last-child {
           margin-right: 0px;
@@ -757,6 +758,8 @@ section {
     opacity: .6;
     @include transition2ms;
     cursor: pointer;
+    text-decoration: none;
+    color: #000a15;
 
     &:hover {
       box-shadow: 0 0 5px fade($primary, 70%);
@@ -830,6 +833,8 @@ section {
 
     #play_video {
       visibility: hidden;
+      text-decoration: none;
+      color: #fff;
     }
 
     #close_video {
@@ -1188,6 +1193,7 @@ section {
     color: $gray-dark;
     font-size: 18px;
     margin-bottom: 20px;
+    margin-top: 30px;
     text-transform: uppercase;
   }
 
@@ -2410,13 +2416,16 @@ section {
       }
 
       .phones {
-        display: flex;
-        justify-content: flex-start;
+        @include flex-start-start;
         align-items: baseline;
         margin-bottom: 50px;
 
         i {
           margin-right: 20px;
+        }
+
+        a {
+          color: #fff
         }
       }
 
@@ -2719,4 +2728,22 @@ section {
       }
     }
   }
+}
+
+.imageSliderContainer {
+  @include flex-center-center;
+  @include flex-col;
+  align-items: stretch;
+  gap: 20px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slider2222{
+  height: 150px;
+  width: 100%;
+  gap: 20px;
 }

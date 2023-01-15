@@ -107,6 +107,8 @@ const Document = (props) => {
         <script src="_code_/assets/breaking-news/breaking-news-ticker.min.js"></script>
         <script src="_code_/assets/lightgallery/js/lightgallery-all.min.js"></script>
         <script src="_code_/js/script.js"></script>
+
+  <div id="THE_RESPONCE_DIV_ID"></div>
       </body>
     </Html>
   );

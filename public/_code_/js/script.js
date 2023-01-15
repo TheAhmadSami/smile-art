@@ -47,7 +47,7 @@ $(document).ready(function (e) {
   const menuWidth = 1100;
 
   $(document).on('click', '.menu ._menu_ a', function (e) {
-    if (!($(this).parents('.menu-item').hasClass('logo') || $(this).parent().hasClass('sub-menu'))) {
+    if (!($(this).parents('.menu-item').hasClass('logo') || $(this).parent().hasClass('sub-menu') || $(this).parent().hasClass('out'))) {
       e.preventDefault();
       e.stopPropagation();
 

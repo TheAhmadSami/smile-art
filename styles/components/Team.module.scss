@@ -1,0 +1,8 @@
+@import './../mixins';
+
+.teamDetails {
+  @include flex-start-center;
+  @include flex-wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
