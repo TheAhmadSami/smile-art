@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "react-i18next";
 import { get } from "@sa/utils/axios";
 import Slider from "react-slick";
 
@@ -13,10 +12,12 @@ import { CustomCard } from "@sa/components";
 
 //styles
 import styles from "@sa/styles/components/Services.module.scss";
+import { useSelector } from "react-redux";
 
 const Services = () => {
   const { t } = useTranslation();
   const [services, setServices] = useState([]);
+  const lang = useSelector((state) => state.lang.value);
 
   const settings = {
     speed: 500,
@@ -47,8 +48,8 @@ const Services = () => {
               <CustomCard
                 key={index}
                 image={service?.image}
-                title={service?.title}
-                description={service?.subtitle}
+                title={lang == 'en' ? service?.titleEn : service?.titleAr}
+                description={lang == 'en' ? service?.subtitleEn : service?.subtitleAr}
               />
             );
           })}
@@ -58,11 +59,3 @@ const Services = () => {
 };
 
 export default Services;
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-}

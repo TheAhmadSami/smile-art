@@ -2,11 +2,10 @@
 /* eslint-disable @next/next/no-css-tags */
 /* eslint-disable @next/next/no-title-in-document-head */
 import { Html, Head, Main, NextScript } from "next/document";
-import Script from "next/script";
 
 const Document = (props) => {
   return (
-    <Html dir={props.locale === "ar" ? "ltr" : "ltr"} lang={props.locale}>
+    <Html>
       <Head>
         <title>SmileArt</title>
         <meta
@@ -14,7 +13,7 @@ const Document = (props) => {
           content="Al Ola Business Services is a full-service provider for information management, specializing in large scale document scanning and conversion services. We have provided professional digitization services for the top companies in Egypt"
         />
 
-        <link rel="shortcut icon" href="_code_/logo.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
 
         <link rel="canonical" href="http://www.smileart-eg.com/" />
 
@@ -63,60 +62,14 @@ const Document = (props) => {
           name="twitter:image"
           content="http://alola-eg.com/_code_/media/website_image.png"
         />
-
-        <link
-          rel="stylesheet"
-          href="_code_/assets/bootstrap_4_3_1/bootstrap.css"
-        />
-        <link
-          rel="stylesheet"
-          href="_code_/assets/font-awesome-5.12/css/all.css"
-        />
-        <link rel="stylesheet" href="_code_/webfonts/Roboto/Roboto.css" />
-        <link rel="stylesheet" href="_code_/css/custom-classes.css" />
-        <link rel="stylesheet" href="_code_/css/hover-min.css" />
-        <link rel="stylesheet" href="_code_/css/reset.css" />
-        <link rel="stylesheet" href="_code_/assets/slick/slick.css" />
-        <link rel="stylesheet" href="_code_/assets/slick/slick-theme.css" />
-        <link rel="stylesheet" href="_code_/assets/swiper/swiper.min.css" />
-        <link
-          rel="stylesheet"
-          href="_code_/assets/breaking-news/breaking-news-ticker.css"
-        />
-        <link
-          type="text/css"
-          rel="stylesheet"
-          href="_code_/assets/lightgallery/css/lightgallery.css"
-        />
-        <link rel="stylesheet" href="_code_/css/styles.css" />
-        <link rel="stylesheet/less" href="_code_/css/styles.less" />
       </Head>
       <body>
         <Main />
         <NextScript />
 
-        <script src="_code_/js/jquery-3.4.1.min.js"></script>
-        <script src="_code_/js/popper.js"></script>
-        <script src="_code_/js/less.js"></script>
-        <script src="_code_/assets/bootstrap_4_3_1/bootstrap.bundle.min.js"></script>
-        <script src="_code_/assets/bootstrap_4_3_1/bootstrap.min.js"></script>
-        <script src="_code_/js/jquery.fittext.js"></script>
-        <script src="_code_/js/mixitup.min.js"></script>
-        <script src="_code_/assets/slick/slick.min.js"></script>
-        <script src="_code_/assets/swiper/swiper.min.js"></script>
-        <script src="_code_/assets/breaking-news/breaking-news-ticker.min.js"></script>
-        <script src="_code_/assets/lightgallery/js/lightgallery-all.min.js"></script>
-        <script src="_code_/js/script.js"></script>
-
-  <div id="THE_RESPONCE_DIV_ID"></div>
       </body>
     </Html>
   );
-};
-
-export const getInitialProps = async (ctx) => {
-  const initialProps = await Document.getInitialProps(ctx);
-  return { ...initialProps, locale: ctx?.locale || "en" };
 };
 
 export default Document;

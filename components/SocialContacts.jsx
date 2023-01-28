@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 //translation
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 
 //styles
 import styles from "@sa/styles/components/SocialContacts.module.scss";
@@ -73,7 +73,7 @@ const SocialContacts = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <i class={item?.icon}></i>
+          <i className={item?.icon}></i>
         </a>
       ))}
     </div>

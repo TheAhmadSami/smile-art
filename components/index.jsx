@@ -8,3 +8,7 @@ export { default as Team } from "./Team";
 export { default as Gallery } from "./Gallery";
 export { default as Clients } from "./Clients";
 export { default as SocialContacts } from "./SocialContacts";
+export { default as Footer } from "./Footer";
+export { default as Contact } from "./Contact";
+export { default as Location } from "./Location";
+export { default as FacebookReviews } from "./FacebookReviews";

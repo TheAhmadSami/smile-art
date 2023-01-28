@@ -1,9 +1,5 @@
 import React from "react";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { FacebookProvider, Page } from 'react-facebook';
-
-
+import { useTranslation } from "react-i18next";
 
 //styles
 import styles from "@sa/styles/components/InstagramFeed.module.scss";

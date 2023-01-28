@@ -1,9 +1,6 @@
 @import '@sa/styles/_mixins';
 
 .feedsContainer{
-  position: absolute;
-  bottom: -380px;
-  z-index: 99;
   @include flex-start-center;
   @include flex-wrap;
   gap: 20px;

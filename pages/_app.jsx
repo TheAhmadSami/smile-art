@@ -1,11 +1,14 @@
+import "@sa/styles/globals.scss";
+import "@sa/i18n";
+import { Provider } from "react-redux";
+import { store } from "@sa/redux/store";
 
-import { appWithTranslation } from "next-i18next";
+const App = ({ Component, pageProps }) => {
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
+};
 
-import '@sa/styles/globals.scss'
-
-const MyApp = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
-  
-}
-
-export default appWithTranslation(MyApp);
+export default App;

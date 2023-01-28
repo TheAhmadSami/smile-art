@@ -1,9 +1,9 @@
 import React from 'react'
-import { FacebookFeed, InstagramFeed, Menu } from '.';
+import { Menu } from '.';
 
 //styles
 import styles from "@sa/styles/components/Header.module.scss";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
 
@@ -27,11 +27,6 @@ const Header = () => {
             <i className="fas fa-user-tie" /> Voice of of Dr. Magdy
           </a>
         </div>
-      </div>
-
-      <div id="feed" className={styles.feedsContainer}>
-        <FacebookFeed />
-        <InstagramFeed />
       </div>
 
       <div className="header-video">
