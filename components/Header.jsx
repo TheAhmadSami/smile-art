@@ -4,10 +4,13 @@ import { Menu } from '.';
 //styles
 import styles from "@sa/styles/components/Header.module.scss";
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-
   const [t] = useTranslation();
+  const lang = useSelector((state) => state.lang.value);
+  const configs = useSelector((state) => state.configs.value);
+
 
   return (
     <section id="header">
@@ -15,16 +18,18 @@ const Header = () => {
 
       <div className="header-content">
         <p className="header-title">
-          Smile Art Clinic,
-          <br />a leading dentists since 1999
+          {t('title')}
         </p>
-        <p className="header-desc">{t("who_we_are_desc")}</p>
+        <p className="header-desc">
+          {lang == "en" ? configs?.aboutEn : configs?.aboutAr}
+        </p>
         <div className="header-buttons">
           <a href="#contact">
             <i className="fas fa-info-circle" /> {t("contact_us")}
           </a>
           <a id="ceo_voice_btn">
-            <i className="fas fa-user-tie" /> Voice of of Dr. Magdy
+            <i className="fas fa-user-tie" />
+            {t("dr_magdy_word")}
           </a>
         </div>
       </div>
@@ -44,9 +49,10 @@ const Header = () => {
 
       <a
         id="play_video"
-        href="https://www.youtube.com/channel/UCpsL8K_LKaA1Gz-Q8R6a0qA?sub_confirmation=1"
+        href={configs?.youtubeVideo}
         target="_blank"
         rel="noreferrer"
+        dir={lang == 'en' ? 'ltr' : 'rtl'}
       >
         <i className="fas fa-play" />
       </a>
@@ -55,6 +61,6 @@ const Header = () => {
       </div>
     </section>
   );
-}
+};
 
 export default Header

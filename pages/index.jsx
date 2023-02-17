@@ -14,35 +14,16 @@ import {
   Location,
   InstagramFeed,
   FacebookReviews,
+  GoogleReviews,
 } from "@sa/components";
 import { useDispatch } from "react-redux";
 import { setLang } from "@sa/redux/lang";
+import { get } from "@sa/utils/axios";
+import { setConfigs } from "@sa/redux/configs";
 
 const Main = () => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
-
-  const getFacebookreviews = () => {
-    // Your Access token
-    const ACCESS_TOKEN =
-      "EAALZCmXSEIxMBADnbPC2tHZCazbbUzcgGoZAzXF2TdZCY2LH0N8mpC9J00AYW6MWxit4c8Kc7V1FG72DLMlamcisoJCGr7bHqEN3ZCTErubfMdOedN4hkPOGlKMZBcImzUt9GeSWVRndKaosVJlsBCt7q9imlZCYzfHHz0o02oZCbbTMxE3xzZCCSA2WwMcuJdUljA4XtwJ97lfgvzZC5BSKXE";
-
-    // page id
-    const pageId = "SmileArtDrmagdy";
-
-    // Fetch reviews for the specified page
-    fetch(
-      `https://graph.facebook.com/${pageId}/ratings?access_token=${ACCESS_TOKEN}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching reviews:", error);
-      });
-  };
-
   const getLang = () => {
     let lang = localStorage.getItem("lang");
     if (lang) {
@@ -63,9 +44,15 @@ const Main = () => {
     
   };
 
+  const getConfigs = () => {
+    get('/configs').then(res => {
+      dispatch(setConfigs(res?.data[0]));
+    })
+  }
+
   useEffect(() => {
-    getFacebookreviews();
     getLang();
+    getConfigs();
   }, []);
 
   return (
@@ -79,6 +66,7 @@ const Main = () => {
       </div>
 
       <FacebookReviews />
+      <GoogleReviews />
 
       <div id="ceo-voice">
         <div className="_ceo-voice_">

@@ -53,7 +53,7 @@ const Gallery = () => {
   return (
     <section id="gallery">
       <p className="section-title">
-        <span>Our</span>Gallery
+        {t('gallery')}
       </p>
       <div className="clients-container"></div>
       <div id={styles["gallery"]} className="__page">

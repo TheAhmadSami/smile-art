@@ -39,7 +39,7 @@ const Services = () => {
   return (
     <section id="services">
       <p className="section-title">
-        <span>Our</span> Services
+        {t('services')}
       </p>
       <div className={styles.servicesDetails}>
         {services.length > 0 &&
@@ -50,6 +50,7 @@ const Services = () => {
                 image={service?.image}
                 title={lang == 'en' ? service?.titleEn : service?.titleAr}
                 description={lang == 'en' ? service?.subtitleEn : service?.subtitleAr}
+                link={service?.link}
               />
             );
           })}

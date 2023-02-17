@@ -6,6 +6,11 @@
   right: 0;
   transform: translateY(-50%);
   z-index: 999;
+
+  &[dir='rtl']{
+    right: initial;
+    left: 0;
+  }
   
   .item{
     width: 32px;

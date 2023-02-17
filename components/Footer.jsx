@@ -19,10 +19,11 @@ const Footer = () => {
 
   return (
     <section id="footer">
-      <p className="copyrights">© 2023 Smile Art Clinic, All Rights Reserved</p>
+      <p className="copyrights">{t("footer")}</p>
       <div className="developer">
         <p>
-          Developed with <i className="fas fa-heart" /> By :
+          {t('developed_by')}
+          <i className="fas fa-heart" /> 
         </p>
         <a
           href="http://linkedin.com/in/theahmadsami"
@@ -30,9 +31,8 @@ const Footer = () => {
           rel="noreferrer"
           style={{ color: "#fff", textDecoration: "underline" }}
         >
-          Ahmad Sami
+          {t("ahmed_sami")}
         </a>
-        {/* <a href="http://ahmedsami.tk" target="_blank"><img src="_code_/media/ahmed-sami-light.svg" alt=""></a> */}
       </div>
     </section>
   );

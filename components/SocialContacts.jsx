@@ -14,56 +14,59 @@ import { useTranslation } from "react-i18next";
 
 //styles
 import styles from "@sa/styles/components/SocialContacts.module.scss";
+import { useSelector } from "react-redux";
 
 const SocialContacts = () => {
   const { t } = useTranslation();
+  const configs = useSelector((state) => state.configs.value);
+  const lang = useSelector((state) => state.lang.value);
 
   const social = [
     {
       icon: "fab fa-facebook-f",
-      href: "https://www.facebook.com/SmileArtDrmagdy",
+      href: configs?.facebook,
       color: "#1877f2",
     },
     {
       icon: "fab fa-twitter",
-      href: "https://www.facebook.com/SmileArtDrmagdy",
+      href: configs?.twitter,
       color: "#1DA1F2",
     },
     {
       icon: "fab fa-instagram",
-      href: "https://instagram.com/smileart.dentalclinic?igshid=YmMyMTA2M2Y=",
+      href: configs?.instagram,
       color: "#8a3ab9",
     },
     {
       icon: "fab fa-tiktok",
-      href: "https://www.tiktok.com/@smileartdentalcenter?_t=8Wm02VWbR8o&_r=",
+      href: configs?.tiktok,
       color: "#000000",
     },
     {
       icon: "fab fa-youtube",
-      href: "https://www.youtube.com/@smileart-dr.magdyel-ghamry3339",
+      href: configs?.youtube,
       color: "#ff0000",
     },
     {
       icon: "fab fa-snapchat",
-      href: "https://www.snapchat.com/add/dentist-magdy",
+      href: configs?.snapchat,
       color: "#fffc00",
       frontColor: "#000",
     },
     {
       icon: "fab fa-whatsapp",
-      href: "https://wa.me/+201140086688?text=Hello",
+      href: `https://wa.me/${configs?.whatsapp}`,
       color: "#25D366",
     },
     {
       icon: "far fa-phone-alt",
-      href: "tel: +201140086688",
+      href: `tel: +2${configs?.phone}`,
       color: "#d3ae55",
     },
   ];
 
   return (
-    <div id={styles.contacts}>
+    <div id={styles.contacts} dir={lang == 'en' ? 'ltr' : 'rtl'}>
       {social.map((item, i) => (
         <a
           key={i}

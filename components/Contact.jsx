@@ -13,12 +13,11 @@ const Contacts = () => {
     <section id="contact">
       <div className="contact-container">
         <div className="left-side">
-          <div className="title">Contact Us</div>
+          <div className="title">{t('contact_us')}</div>
           <div className="address">
             <i className="fas fa-map-marker-alt" />
             <p>
-              <span>Headquarter:</span> 92 Sayed Zakeria st., Sheraton,
-              Cairo,Egypt.
+              <span>{t("headquarter")}:</span>{t('address')}
             </p>
           </div>
           <div className="phones">
@@ -35,19 +34,19 @@ const Contacts = () => {
         </div>
         <div className="right-side">
           <div className="input-container">
-            <label>Full name</label>
+            <label>{t('full_name')}</label>
             <input id="contact_name" name="name" type="text" />
           </div>
           <div className="input-container">
-            <label>Phone number</label>
+            <label>{t('phone_number')}</label>
             <input id="contact_phone" name="phone" type="tel" />
           </div>
           <div className="input-container">
-            <label>E-mail</label>
+            <label>{t('email')}</label>
             <input id="contact_email" name="email" type="email" />
           </div>
           <div className="input-container">
-            <label>Message</label>
+            <label>{t('message')}</label>
             <textarea name="message" id="contact_message" defaultValue={""} />
             <button className="submit-message">
               <i className="fas fa-paper-plane" />

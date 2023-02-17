@@ -29,9 +29,7 @@ const Team = () => {
 
   return (
     <section id="products">
-      <p className="section-title">
-        <span>Our</span> Team
-      </p>
+      <p className="section-title">{t("team")}</p>
       <div id={styles.team} className="__page">
         <div className={styles.teamDetails}>
           {staff.length > 0 &&
@@ -39,8 +37,10 @@ const Team = () => {
               return (
                 <CustomCard
                   key={index}
-                  title={lang == 'en' ? team?.titleEn : team?.titleAr}
-                  description={lang == 'en' ? team?.subtitleEn : team?.subtitleAr}
+                  title={lang == "en" ? team?.titleEn : team?.titleAr}
+                  description={
+                    lang == "en" ? team?.subtitleEn : team?.subtitleAr
+                  }
                   image={team?.image}
                 />
               );

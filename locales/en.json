@@ -4,7 +4,6 @@
   "clients": "Testmonials",
   "contact_us": "Contact Us",
   "dr_magdy_word": "Dr. Magdy word",
-  "dr_magdy_word_desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quibusdam adipisci illum doloremque corporis, voluptatum quisquam! Magni odit iste ducimus voluptatum corporis quis dignissimos quibusdam sequi. Dolore temporibus provident itaque!",
   "facebook_feed": "Facebook Feed",
   "instagram_feed": "Instgram Feed",
   "gallery": "Gallery",
@@ -29,6 +28,15 @@
   "team_members": "Team Members",
   "view_more": "View More",
   "who_we_are": "Who we are?",
-  "who_we_are_desc": "And because we have been at your service for more than ten years in cooperation with a team of specialists and consultants for every specialty in the field of dentistry; we are keen to provide the highest medical standards and international protocols for treatment.",
-  "send_message": "Send us a message"
+  "send_message": "Send us a message",
+  "read_more": "Read More",
+  "full_name": "Name",
+  "email": "E-Mail",
+  "footer": "© 2023 Smile Art Clinic, All Rights Reserved",
+  "ahmed_sami": "Ahmed Sami",
+  "developed_by": "Developed with ",
+  "headquarter": "Headquarter",
+  "address": "92 Sayed Zakeria st., Sheraton, Cairo,Egypt.",
+  "know_more": "Know More",
+  "title": "Smile Art Clinic, 20 years of smiling."
 }
