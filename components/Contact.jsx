@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +9,24 @@ import { useSelector } from "react-redux";
 const Contacts = () => {
   const { t } = useTranslation();
   const configs = useSelector((state) => state.configs.value);
+
+
+  const convertTime = (timeString) => {
+    const [hours, minutes] = timeString?.split(':');
+    let output = '';
+    let period = '';
+
+    if (hours > 12) {
+      output = hours - 12;
+      period = 'pm';
+    } else {
+      output = hours;
+      period = 'am';
+    }
+
+    output = `${output}:${minutes} ${period}`;
+    return output;
+  }
 
 
   return (
@@ -33,7 +50,14 @@ const Contacts = () => {
             </p>
           </div>
           <div className="note">
-            Reach us by phone or email from Sunday to Thursday, 9 A.M. - 5 P.M.
+            {
+              t('reach_us', {
+                fromDay: t(configs?.fromDay),
+                toDay: t(configs?.toDay),
+                fromTime: configs?.fromTime && convertTime(configs?.fromTime),
+                toTime: configs?.toTime && convertTime(configs?.toTime)
+              })
+            }
           </div>
         </div>
         <div className="right-side">

@@ -19,7 +19,7 @@ const Header = () => {
 
       <div className="header-content">
         <p className="header-title">
-          {t('title')}
+          {lang == 'ar' ? configs?.titleAr : configs?.titleEn}
         </p>
         <p className="header-desc">
           {lang == "en" ? configs?.aboutEn : configs?.aboutAr}

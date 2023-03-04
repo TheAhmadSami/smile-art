@@ -14,6 +14,10 @@ const InstagramFeed = () => {
           <h1 className={styles.title}>{t("instagram_feed")}</h1>
         </div>
       </div>
+
+      <div className='data-load-issue-container'>
+        <p className='data-load-issue'>{t('data_load_issue')}</p>
+      </div>
       {/* <FacebookProvider appId="843984503317267">
         <Page href="https://www.facebook.com/SmileArtDrmagdy" tabs="timeline" />
       </FacebookProvider> */}
