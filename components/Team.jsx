@@ -28,7 +28,7 @@ const Team = () => {
   }, []);
 
   return (
-    <section id="products">
+    <section id="team">
       <p className="section-title">{t("team")}</p>
       <div id={styles.team} className="__page">
         <div className={styles.teamDetails}>

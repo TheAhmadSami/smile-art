@@ -33,6 +33,7 @@
     "react-simple-image-slider": "^2.4.1",
     "react-slick": "^0.29.0",
     "sass": "^1.56.1",
+    "simple-react-modal": "^0.5.1",
     "slick-carousel": "^1.8.1",
     "swiper": "^8.4.5"
   },

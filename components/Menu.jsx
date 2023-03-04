@@ -12,9 +12,45 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const { t } = useTranslation();
 
+  const lang = useSelector(state => state.lang.value);
   const [scroll, setScroll] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const lang = useSelector(state => state.lang.value);
+  const [menuItems, setMenuItems] = useState([
+    {
+      label: 'home',
+      href: '#home',
+    },
+    {
+      label: 'who_we_are',
+      href: '#feeds',
+    },
+    {
+      label: 'team',
+      href: '#team',
+    },
+    {
+      label: 'services',
+      href: '#services',
+    },
+    {
+      label: 'logo',
+      href: '',
+      isLogo: true,
+    },
+    {
+      label: 'gallery',
+      href: '#gallery',
+    },
+    {
+      label: 'contact_us',
+      href: '#contact',
+    },
+    {
+      label: 'book_now',
+      href: 'https://docs.google.com/forms/d/19YeOpGYfoy3AA-SSL_epFJCStcp6_QgtIB-TYL6Gjz8/prefill',
+      isOut: true,
+    }
+  ]);
 
   const handleScroll = (e) => {
     if (e.target.documentElement.scrollTop > 150) {
@@ -24,11 +60,6 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div
       className={`${scroll ? "menu scroll" : "menu"} ${toggle ? "active" : ""}`}
@@ -36,52 +67,28 @@ const Header = () => {
       <a href="http://www.smileart-eg.com" className="main-logo">
         <img src={assets.logo.src} alt="" />
       </a>
+      
       <div className="_menu_">
-        <div className="menu-item">
-          <a href="#header" className="active">
-            {t("home")}
-          </a>
-        </div>
+        {
+          menuItems.map((item, index) => {
+            return item?.isLogo ?
+              <div className="menu-item logo">
+                <a href="http://www.smileart-eg.com">
+                  <img src={assets.logo.src} alt="" />
+                </a>
+              </div> :
+              <div key={index} className="menu-item">
+                <a href={item?.href} target={item?.isOut && '_blank'}
+                  rel={item?.isOut && 'noreferrer'}>
+                  {t(item?.label)}
+                </a>
+              </div>
+          })
+        }
 
-        <div className="menu-item">
-          <a href="#feed">{t("who_we_are")}</a>
-        </div>
-
-        <div className="menu-item">
-          <a href="#products">{t("team")}</a>
-        </div>
-        <div className="menu-item">
-          <a href="#services">{t("services")}</a>
-        </div>
-        <div className="menu-item logo">
-          <a href="http://www.smileart-eg.com">
-            <img src={assets.logo.src} alt="" />
-          </a>
-        </div>
-        <div className="menu-item">
-          <a href="#gallery">{t("gallery")}</a>
-        </div>
-        <div className="menu-item">
-          <a href="#contact">{t("contact_us")}</a>
-        </div>
-        <div className="menu-item out">
-          <a
-            href="https://docs.google.com/forms/d/19YeOpGYfoy3AA-SSL_epFJCStcp6_QgtIB-TYL6Gjz8/prefill"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t("book_now")}
-          </a>
-        </div>
-
-        <div className="menu-item">
-          <a href="#clients">
-            {lang == "en" ? (
-              <span onClick={() => changeLang("ar")}>العربية</span>
-            ) : (
-              <span onClick={() => changeLang("en")}>English</span>
-            )}
-          </a>
+        <div className="lang-toggle">
+          <p className={lang == "en" && 'active'} onClick={() => changeLang("en")}>EN</p>
+          <p className={lang == "ar" && 'active'} onClick={() => changeLang("ar")}>AR</p>
         </div>
       </div>
       <div className="menu-toggle" onClick={() => setToggle((old) => !old)}>

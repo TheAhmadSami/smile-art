@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Menu } from '.';
 
 //styles
@@ -10,6 +10,7 @@ const Header = () => {
   const [t] = useTranslation();
   const lang = useSelector((state) => state.lang.value);
   const configs = useSelector((state) => state.configs.value);
+  const [drMagdy, showDrMagdy] = useState(false)
 
 
   return (
@@ -27,10 +28,21 @@ const Header = () => {
           <a href="#contact">
             <i className="fas fa-info-circle" /> {t("contact_us")}
           </a>
-          <a id="ceo_voice_btn">
+          <a onClick={() => showDrMagdy(true)}>
             <i className="fas fa-user-tie" />
-            {t("dr_magdy_word")}
+            {t("about_dr_magdy")}
           </a>
+        </div>
+      </div>
+
+      <div id="ceo-voice" className={`_ceo-voice_ ${drMagdy && 'active'}`}>
+        <div className="_ceo-voice_">
+          <div className="close" onClick={() => showDrMagdy(false)}><i className='fas fa-times'></i></div>
+          <div className='image' style={{ backgroundImage: 'url(dr-magdy.jpeg)'}}></div>
+          <p className="text" dir={lang == 'ar' ? 'rtl' : 'ltr'}>
+            {lang == 'ar' ? configs?.wordAr : configs?.wordEn}
+            <span>{t('dr_magdy')}</span>
+          </p>
         </div>
       </div>
 

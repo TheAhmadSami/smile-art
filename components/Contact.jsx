@@ -1,12 +1,15 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSelector } from "react-redux";
 
 const Contacts = () => {
   const { t } = useTranslation();
+  const configs = useSelector((state) => state.configs.value);
 
 
   return (
@@ -23,9 +26,10 @@ const Contacts = () => {
           <div className="phones">
             <i className="fas fa-phone" />
             <p>
-              <a href="tel: +20 123 456 7890">(+2 02) 24181621</a>
+              <a href={`tel: ${configs?.phone}`}>{configs?.phone}</a>
               <br />
-              <a href="tel: +20 123 456 7890">(+2 02) 26901298</a>
+              {configs?.phone != configs?.mobile &&
+                <a href={`tel: ${configs?.mobile}`}>{configs?.mobile}</a>}
             </p>
           </div>
           <div className="note">

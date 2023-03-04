@@ -68,16 +68,6 @@ const Main = () => {
       <FacebookReviews />
       <GoogleReviews />
 
-      <div id="ceo-voice">
-        <div className="_ceo-voice_">
-          {/* <img src="_code_/media/ceo.jpg" alt="" /> */}
-          <p className="text">
-            {t("who_we_are_desc")}
-            <span>Eng. Magdy El Ghamry</span>
-          </p>
-        </div>
-      </div>
-
       <Services />
       <Team />
       <Gallery />

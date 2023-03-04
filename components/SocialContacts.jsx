@@ -23,37 +23,6 @@ const SocialContacts = () => {
 
   const social = [
     {
-      icon: "fab fa-facebook-f",
-      href: configs?.facebook,
-      color: "#1877f2",
-    },
-    {
-      icon: "fab fa-twitter",
-      href: configs?.twitter,
-      color: "#1DA1F2",
-    },
-    {
-      icon: "fab fa-instagram",
-      href: configs?.instagram,
-      color: "#8a3ab9",
-    },
-    {
-      icon: "fab fa-tiktok",
-      href: configs?.tiktok,
-      color: "#000000",
-    },
-    {
-      icon: "fab fa-youtube",
-      href: configs?.youtube,
-      color: "#ff0000",
-    },
-    {
-      icon: "fab fa-snapchat",
-      href: configs?.snapchat,
-      color: "#fffc00",
-      frontColor: "#000",
-    },
-    {
       icon: "fab fa-whatsapp",
       href: `https://wa.me/${configs?.whatsapp}`,
       color: "#25D366",
@@ -62,6 +31,37 @@ const SocialContacts = () => {
       icon: "far fa-phone-alt",
       href: `tel: +2${configs?.phone}`,
       color: "#d3ae55",
+    },
+    {
+      icon: "fab fa-facebook-f",
+      href: configs?.facebook,
+      color: "#1877f2",
+    },
+    {
+      icon: "fab fa-instagram",
+      href: configs?.instagram,
+      color: "#8a3ab9",
+    },
+    {
+      icon: "fab fa-youtube",
+      href: configs?.youtube,
+      color: "#ff0000",
+    },
+    {
+      icon: "fab fa-tiktok",
+      href: configs?.tiktok,
+      color: "#000000",
+    },
+    {
+      icon: "fab fa-snapchat",
+      href: configs?.snapchat,
+      color: "#fffc00",
+      frontColor: "#000",
+    },
+    {
+      icon: "fab fa-twitter",
+      href: configs?.twitter,
+      color: "#1DA1F2",
     },
   ];
 
