@@ -21,7 +21,7 @@ const Header = () => {
       href: '#home',
     },
     {
-      label: 'who_we_are',
+      label: 'why_smileart',
       href: '#feeds',
     },
     {
@@ -60,6 +60,11 @@ const Header = () => {
     }
   };
 
+  const goTo = (itemId) => {
+    setToggle(false);
+    location.href = itemId;
+  }
+
   return (
     <div
       className={`${scroll ? "menu scroll" : "menu"} ${toggle ? "active" : ""}`}
@@ -78,7 +83,7 @@ const Header = () => {
                 </a>
               </div> :
               <div key={index} className="menu-item">
-                <a href={item?.href} target={item?.isOut && '_blank'}
+                <a onClick={() => goTo(item?.href)} target={item?.isOut && '_blank'}
                   rel={item?.isOut && 'noreferrer'}>
                   {t(item?.label)}
                 </a>
