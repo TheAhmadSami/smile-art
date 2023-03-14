@@ -13,3 +13,4 @@ export { default as Contact } from "./Contact";
 export { default as Location } from "./Location";
 export { default as FacebookReviews } from "./FacebookReviews";
 export { default as GoogleReviews } from "./GoogleReviews";
+export { default as WhatsappReviews } from "./WhatsappReviews";

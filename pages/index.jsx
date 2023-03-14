@@ -15,6 +15,7 @@ import {
   InstagramFeed,
   FacebookReviews,
   GoogleReviews,
+  WhatsappReviews,
 } from "@sa/components";
 import { useDispatch } from "react-redux";
 import { setLang } from "@sa/redux/lang";
@@ -66,7 +67,7 @@ const Main = () => {
       </div>
 
       <FacebookReviews />
-      <GoogleReviews />
+      <WhatsappReviews />
 
       <Services />
       <Team />

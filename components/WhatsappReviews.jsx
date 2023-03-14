@@ -20,7 +20,7 @@ const FacebookReviews = () => {
   const [image, setImage] = useState("");
 
   const loadReviews = async () => {
-    get("/feedback-facebook").then((res) => {
+    get("/feedback-whatsapp").then((res) => {
       setReviews(res.data);
     });
   };
@@ -43,7 +43,7 @@ const FacebookReviews = () => {
   return (
     <section id="gallery">
       <p className="section-title">
-        {t('Facebook Feedback')}
+        {t('Whatsapp Feedback')}
       </p>
       <div className="clients-container"></div>
       <div id={styles["gallery"]} className="__page">
