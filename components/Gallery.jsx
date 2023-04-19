@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, TextField } from "@mui/material";
 import SimpleImageSlider from "react-simple-image-slider";
+import { useSelector } from "react-redux";
+
 import { get } from "@sa/utils/axios";
 
 //translation
@@ -13,15 +15,17 @@ import { SectionTitle } from "@sa/components";
 //styles
 import styles from "@sa/styles/components/Gallery.module.scss";
 
-const Gallery = ({hideTitle}) => {
+const Gallery = ({ hideTitle }) => {
   const { t } = useTranslation();
-  const [gallery, setGallery] = useState(false);
+  const lang = useSelector((state) => state.lang.value);
+  const [albums, setAlbums] = useState(false);
   const [imageModal, setImageModal] = useState(false);
+  const [activeImages, setActiveImages] = useState(false);
   const [image, setImage] = useState("");
 
-  const loadGallery = async () => {
-    get("/gallery").then((res) => {
-      setGallery(res.data);
+  const loadAlbums = async () => {
+    get("/albums").then((res) => {
+      setAlbums(res.data);
     });
   };
 
@@ -31,23 +35,13 @@ const Gallery = ({hideTitle}) => {
     }
   };
 
-  const addToGallery = () => {
-    let data = new FormData();
-    data.append("image", image);
-
-    post("/gallery", data).then((res) => {
-      closeModal();
-      loadGallery();
-    });
-  };
-
   const closeModal = () => {
     setImage(null);
     setModalStatus(false);
   };
 
   useEffect(() => {
-    loadGallery();
+    loadAlbums();
   }, []);
 
   const [windowWidth, setWindowWidth] = useState(
@@ -68,20 +62,38 @@ const Gallery = ({hideTitle}) => {
 
   return (
     <section id="gallery">
-      {hideTitle && <p className="section-title light">{t("gallery")}</p>}
+      <p className="section-title light">{t("gallery")}</p>
       <div id={styles["gallery"]} className="__page">
         <div className={styles.content}>
-          {gallery.length > 0 &&
-            gallery?.map((item, index) => {
-              return (
-                <img
-                  key={index}
-                  src={item?.url}
-                  className={styles.img}
-                  alt="Smile Art"
-                  onClick={() => setImageModal(true)}
-                />
-              );
+          {albums.length > 0 &&
+            albums?.map((album, index) => {
+              if(album?.images?.length > 0 ){
+                return (
+                  <div key={index}>
+                    <div className={styles.albumTitle}>
+                      <p>{lang == "en" ? album?.nameEn : album?.nameAr}</p>
+                      <p>{t("view_more")}</p>
+                    </div>
+                    <div className={styles.imagesContainer}>
+                      {album?.images?.length > 0 &&
+                        album?.images?.map((image) => (
+                          <img
+                            key={index}
+                            src={image?.url}
+                            className={styles.img}
+                            alt="Smile Art"
+                            onClick={() => {
+                              setActiveImages(album?.images)
+                              setTimeout(() => {
+                                setImageModal(true);
+                              }, 300);
+                            }}
+                          />
+                        ))}
+                    </div>
+                  </div>
+                );
+              }
             })}
         </div>
 
@@ -95,7 +107,7 @@ const Gallery = ({hideTitle}) => {
             <SimpleImageSlider
               width={windowWidth > 500 ? 500 : windowWidth}
               height={windowWidth > 500 ? 500 : windowWidth}
-              images={gallery}
+              images={activeImages}
               showBullets={true}
               showNavs={true}
             />

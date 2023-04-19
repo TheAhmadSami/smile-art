@@ -15,6 +15,7 @@ import {
   InstagramFeed,
   FacebookReviews,
   GoogleReviews,
+  ArticleCard,
 } from "@sa/components";
 import { useDispatch } from "react-redux";
 import { setLang } from "@sa/redux/lang";
@@ -23,6 +24,7 @@ import { setConfigs } from "@sa/redux/configs";
 
 const Main = () => {
   const { t, i18n } = useTranslation();
+  const [articles, setArticles] = useState([]);
   const dispatch = useDispatch();
   const getLang = () => {
     let lang = localStorage.getItem("lang");
@@ -37,22 +39,28 @@ const Main = () => {
           i18n.changeLanguage("en");
           break;
       }
-    }else{
-      localStorage.setItem("lang", 'en');
+    } else {
+      localStorage.setItem("lang", "en");
     }
-    dispatch(setLang(lang ? lang : 'en'));
-    
+    dispatch(setLang(lang ? lang : "en"));
   };
 
   const getConfigs = () => {
-    get('/configs').then(res => {
+    get("/configs").then((res) => {
       dispatch(setConfigs(res?.data[0]));
-    })
-  }
+    });
+  };
+
+  const getArticles = () => {
+    get("/article").then((res) => {
+      setArticles(res?.data);
+    });
+  };
 
   useEffect(() => {
     getLang();
     getConfigs();
+    getArticles();
   }, []);
 
   return (
@@ -61,10 +69,11 @@ const Main = () => {
       <Header />
 
       <div id="feeds">
-        <FacebookFeed />
-        <InstagramFeed />
+        {articles?.length > 0 &&
+          articles?.map((article, index) => {
+            return <ArticleCard key={index} article={article} />
+})}
       </div>
-
 
       <div id="reviews">
         <FacebookReviews />
@@ -73,7 +82,7 @@ const Main = () => {
 
       <Services />
       <Team />
-      <Gallery />
+      <Gallery hideTitle={false} />
       <Location />
       <Contact />
       <Footer />

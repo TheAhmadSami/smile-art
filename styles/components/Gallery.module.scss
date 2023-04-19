@@ -1,14 +1,35 @@
+@import './../mixins';
+
 #gallery {
   .content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
     margin: 20px 0;
 
-    img{
+    .albumTitle {
+      @include flex-start-start;
+      justify-content: space-between;
+      padding: 10px;
+      margin-top: 20px;
+
+      p {
+        font-size: 25px;
+        color: var(--primary);
+
+        &:last-child {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .imagesContainer {
+      @include flex-start-start;
+      @include flex-wrap;
+      gap: 10px;
+    }
+
+    img {
       cursor: pointer;
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       left: 516px;
       top: 86px;
       border-radius: 16px;
