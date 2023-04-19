@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.11.2",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.15",
     "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.1",
     "eslint": "8.27.0",
@@ -30,6 +30,7 @@
     "react-leaflet": "^4.1.0",
     "react-modal-image": "^2.6.0",
     "react-redux": "^8.0.5",
+    "react-responsive-carousel": "^3.2.23",
     "react-simple-image-slider": "^2.4.1",
     "react-slick": "^0.29.0",
     "sass": "^1.56.1",

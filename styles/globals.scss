@@ -1,14 +1,14 @@
 @import './config.scss';
 
 /* OTHER VARIABLES ***********************************************/
-$menuWidth: 830px;
+$menuWidth: 930px;
 
 
 /* COLORS CODES ***********************************************/
 $primary: #d3ae55;
 $primary-grad: linear-gradient(to right, #d2ac52, #e8ce82);
-$dark: #003E5A;
-$dark-grad: linear-gradient(to right, #003e7b, #005d9c);
+$dark: #1b1b1b;
+$dark-grad: linear-gradient(to right, #1b1b1b, #555555);
 $dark2: #1b1b1b;
 $light: #ffffff;
 $gray: #F4F4F4;
@@ -708,7 +708,7 @@ section {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba($dark, 80%);
+      background: rgba(#000, 40%);
       @include transition3ms;
     }
 
@@ -1450,7 +1450,7 @@ section {
         padding: 0px 40px;
         width: 100%;
         opacity: .6;
-        font-size: 13px;
+        font-size: 16px;
         padding-bottom: 10px;
         text-align: center;
       }
@@ -1786,8 +1786,33 @@ section {
   height: 100%;
   @include flex-center-center;
 
-  .data-load-issue{
+  .data-load-issue {
     margin-top: -20px;
     @include flex-center-center;
+  }
+}
+
+.serviceModal {
+  width: 80%;
+  height: 80%;
+  overflow-y: scroll;
+  @include flex-start-center;
+  @include flex-col;
+  align-items: stretch;
+  gap: 20px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 30px;
+}
+
+@media(max-width: 700px) {
+  .serviceModal {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
   }
 }

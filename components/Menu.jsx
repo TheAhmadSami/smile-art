@@ -21,8 +21,8 @@ const Header = () => {
       href: '#home',
     },
     {
-      label: 'why_smileart',
-      href: '#feeds',
+      label: 'reviews',
+      href: '#reviews',
     },
     {
       label: 'team',
@@ -93,7 +93,7 @@ const Header = () => {
 
         <div className="lang-toggle">
           <p className={lang == "en" && 'active'} onClick={() => changeLang("en")}>EN</p>
-          <p className={lang == "ar" && 'active'} onClick={() => changeLang("ar")}>AR</p>
+          <p style={{fontFamily: 'Arial', fontSize: '16px'}} className={lang == "ar" && 'active'} onClick={() => changeLang("ar")}>ع</p>
         </div>
       </div>
       <div className="menu-toggle" onClick={() => setToggle((old) => !old)}>

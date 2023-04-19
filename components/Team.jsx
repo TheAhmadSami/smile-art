@@ -29,7 +29,7 @@ const Team = () => {
 
   return (
     <section id="team">
-      <p className="section-title">{t("team")}</p>
+      <p className="section-title light">{t("team")}</p>
       <div id={styles.team} className="__page">
         <div className={styles.teamDetails}>
           {staff.length > 0 &&

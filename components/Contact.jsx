@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
 
 // Import css files
 import "slick-carousel/slick/slick.css";
@@ -11,26 +12,27 @@ const Contacts = () => {
   const configs = useSelector((state) => state.configs.value);
 
 
-  const convertTime = (timeString) => {
-    const [hours, minutes] = timeString?.split(':');
-    let output = '';
-    let period = '';
+  // const convertTime = (timeString) => {
+  //   const [hours, minutes] = timeString?.split(':');
+  //   let output = '';
+  //   let period = '';
 
-    if (hours > 12) {
-      output = hours - 12;
-      period = 'pm';
-    } else {
-      output = hours;
-      period = 'am';
-    }
+  //   if (hours > 12) {
+  //     output = hours - 12;
+  //     period = 'pm';
+  //   } else {
+  //     output = hours;
+  //     period = 'am';
+  //   }
 
-    output = `${output}:${minutes} ${period}`;
-    return output;
-  }
+  //   output = `${output}:${minutes} ${period}`;
+  //   return output;
+  // }
 
 
   return (
     <section id="contact">
+      {console.log(configs)}
       <div className="contact-container">
         <div className="left-side">
           <div className="title">{t('contact_us')}</div>
@@ -54,8 +56,8 @@ const Contacts = () => {
               t('reach_us', {
                 fromDay: t(configs?.fromDay),
                 toDay: t(configs?.toDay),
-                fromTime: configs?.fromTime && convertTime(configs?.fromTime),
-                toTime: configs?.toTime && convertTime(configs?.toTime)
+                fromTime: moment(configs?.fromTime, ["hh:mm"]).format('hh:mmA'),
+                toTime: moment(configs?.toTime, ["hh:mm"]).format('hh:mmA')
               })
             }
           </div>

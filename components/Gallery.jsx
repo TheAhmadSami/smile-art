@@ -13,7 +13,7 @@ import { SectionTitle } from "@sa/components";
 //styles
 import styles from "@sa/styles/components/Gallery.module.scss";
 
-const Gallery = () => {
+const Gallery = ({hideTitle}) => {
   const { t } = useTranslation();
   const [gallery, setGallery] = useState(false);
   const [imageModal, setImageModal] = useState(false);
@@ -50,12 +50,25 @@ const Gallery = () => {
     loadGallery();
   }, []);
 
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <section id="gallery">
-      <p className="section-title">
-        {t('gallery')}
-      </p>
-      <div className="clients-container"></div>
+      {hideTitle && <p className="section-title light">{t("gallery")}</p>}
       <div id={styles["gallery"]} className="__page">
         <div className={styles.content}>
           {gallery.length > 0 &&
@@ -80,8 +93,8 @@ const Gallery = () => {
         >
           <div className="imageSliderContainer">
             <SimpleImageSlider
-              width={1920 / 2.5}
-              height={1080 / 2.5}
+              width={windowWidth > 500 ? 500 : windowWidth}
+              height={windowWidth > 500 ? 500 : windowWidth}
               images={gallery}
               showBullets={true}
               showNavs={true}

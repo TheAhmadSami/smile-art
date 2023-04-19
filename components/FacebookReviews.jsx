@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { SectionTitle } from "@sa/components";
 
 //styles
-import styles from "@sa/styles/components/Gallery.module.scss";
+import styles from "@sa/styles/components/Reviews.module.scss";
 
 const FacebookReviews = () => {
   const { t } = useTranslation();
@@ -19,8 +19,10 @@ const FacebookReviews = () => {
   const [imageModal, setImageModal] = useState(false);
   const [image, setImage] = useState("");
 
+
+
   const loadReviews = async () => {
-    get("/feedback-facebook").then((res) => {
+    get("/reviews-facebook").then((res) => {
       setReviews(res.data);
     });
   };
@@ -40,13 +42,29 @@ const FacebookReviews = () => {
     loadReviews();
   }, []);
 
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  
+
+
   return (
-    <section id="gallery">
-      <p className="section-title">
-        {t('Facebook Feedback')}
-      </p>
+    <section id="reviews">
+      <p className="section-title light">{t("facebook_reviews")}</p>
       <div className="clients-container"></div>
-      <div id={styles["gallery"]} className="__page">
+      <div id={styles["reviews"]} className="__page">
         <div className={styles.content}>
           {reviews.length > 0 &&
             reviews?.map((item, index) => {
@@ -60,6 +78,9 @@ const FacebookReviews = () => {
                 />
               );
             })}
+          <a href="https://smileart-eg.com" className={styles.readMore}>
+            {t("read_more")}
+          </a>
         </div>
 
         <Modal
@@ -70,8 +91,8 @@ const FacebookReviews = () => {
         >
           <div className="imageSliderContainer">
             <SimpleImageSlider
-              width={1920 / 2.5}
-              height={1080 / 2.5}
+              width={windowWidth > 580 ? 580 : windowWidth}
+              height={windowWidth > 580 ? 500 : windowWidth * 0.9}
               images={reviews}
               showBullets={true}
               showNavs={true}

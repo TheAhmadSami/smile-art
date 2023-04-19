@@ -8,23 +8,42 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  cursor: pointer;
 
   .img {
     width: 100%;
-    height: 161px;
+    padding-top: 100%;
+    background-position: top;
+    background-size: cover;
     border-radius: 10px;
+    pointer-events: none;
   }
 
   .title {
     font-weight: 600;
     font-size: 14px;
     color: #b38f22;
+    pointer-events: none;
   }
 
-  .job {
+  .desc {
     font-weight: 400;
     font-size: 14px;
     color: #333333;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: #333;
+    
+    .desc{
+      color: #fff;
+    }
   }
 
   .knowMore {
@@ -34,5 +53,12 @@
     &[dir='rtl'] {
       text-align: left;
     }
+  }
+}
+
+
+@media(max-width: 500px) {
+  .team-card {
+    width: 100%;
   }
 }

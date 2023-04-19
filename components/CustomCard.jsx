@@ -7,15 +7,16 @@ import Image from "next/image";
 import styles from "@sa/styles/components/CustomCard.module.scss";
 import { useSelector } from "react-redux";
 
-const CustomCard = ({ title, description, image, link }) => {
+const CustomCard = ({ title, description, image, link, onClick }) => {
   const { t } = useTranslation();
   const lang = useSelector((state) => state.lang.value);
 
   return (
-    <div className={styles["team-card"]}>
-      <img src={image} className={styles["img"]} alt={title} />
+    <div className={styles["team-card"]} onClick={onClick}>
+      {/* <img src={image} className={styles["img"]} alt={title} /> */}
+      <div className={styles.img} style={{ backgroundImage: `url(${image})`}}></div>
       <div className={styles["title"]}>{title}</div>
-      <div className={styles["job"]}>{description}</div>
+      <div className={styles["desc"]}>{description}</div>
       {link && (
         <a
           href={link}

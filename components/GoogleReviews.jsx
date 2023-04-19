@@ -1,83 +1,102 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import moment from "moment";
-import Slider from "react-slick";
+import { Button, Modal, TextField } from "@mui/material";
+import SimpleImageSlider from "react-simple-image-slider";
+import { get } from "@sa/utils/axios";
 
-// Import css files
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+//translation
+import { useTranslation } from "react-i18next";
+
+//components
+import { SectionTitle } from "@sa/components";
 
 //styles
-import styles from "@sa/styles/components/FacebookReviews.module.scss";
-import assets from "@sa/assets";
-import { get } from "@sa/utils/axios";
-import axios from "axios";
+import styles from "@sa/styles/components/Reviews.module.scss";
 
 const FacebookReviews = () => {
   const { t } = useTranslation();
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState(false);
+  const [imageModal, setImageModal] = useState(false);
+  const [image, setImage] = useState("");
 
-  const fetchReviews = async () => {
-    const apiKey = "AIzaSyCaHA4Ji_C6V4iz7Kj_FdHylkLq5jN1aoo";
-    const placeId = "ChIJVZrRYRUWWBQR2MTP9Ykil24";
-    // axios({
-    //   method: "GET",
-    //   url: `https://maps.googleapis.com/maps/api/place/details/json?key=${apiKey}&placeid=${placeId}`,
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*",
-    //   },
-    // }).then((res) => {
-    //   console.log(res?.data);
-    // });
+  const loadReviews = async () => {
+    get("/reviews-google").then((res) => {
+      setReviews(res.data);
+    });
+  };
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(event.target.files[0]);
+    }
+  };
+
+  const closeModal = () => {
+    setImage(null);
+    setModalStatus(false);
   };
 
   useEffect(() => {
-    fetchReviews();
+    loadReviews();
   }, []);
 
-  const settings = {
-    speed: 500,
-    autoplay: true,
-    infinite: false,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-  };
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <div id={styles.facebookReviews}>
-      <Slider {...settings} className="slider2222">
-        {reviews?.map((review, i) => (
-          <div key={i} className={styles.review}>
-            <div className={styles.header}>
-              <div className={styles.info}>
-                <img className={styles.image} src={assets.empty.src} alt="" />
-                <div>
-                  <p className={styles.title}>{t("unknkown")}</p>
-                  <p className={styles.date}>
-                    {moment(review?.created_time).format(
-                      "DD MMM, YYYY - hh:mm"
-                    )}
-                  </p>
-                </div>
-              </div>
-              <img
-                src={assets.googleLogo.src}
-                alt="smileart facebook logo"
-                className={styles.logo}
-              />
-            </div>
-            <div className={styles.reviewText}>{review?.review_text}</div>
-            <a
-              href="https://www.facebook.com/SmileArtDrmagdy/reviews"
-              className={styles.readMore}
-            >
-              {t("read_more")}
-            </a>
+    <section id="reviews">
+      <p className="section-title light">{t("google_reviews")}</p>
+      <div className="clients-container"></div>
+      <div id={styles["reviews"]} className="__page">
+        <div className={styles.content}>
+          {reviews.length > 0 &&
+            reviews?.map((item, index) => {
+              return (
+                <img
+                  key={index}
+                  src={item?.url}
+                  className={styles.img}
+                  alt="Smile Art"
+                  onClick={() => setImageModal(true)}
+                />
+              );
+            })}
+          <a href="https://smileart-eg.com" className={styles.readMore}>
+            {t("read_more")}
+          </a>
+        </div>
+
+        <Modal
+          open={imageModal}
+          onClose={() => setImageModal(false)}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <div className="imageSliderContainer">
+            <SimpleImageSlider
+              width={windowWidth > 580 ? 580 : windowWidth}
+              height={windowWidth > 580 ? 500 : windowWidth * 0.9}
+              images={reviews}
+              showBullets={true}
+              showNavs={true}
+            />
           </div>
-        ))}
-      </Slider>
-    </div>
+        </Modal>
+      </div>
+    </section>
   );
 };
 

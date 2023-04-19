@@ -33,6 +33,14 @@ const Footer = () => {
         >
           {t("ahmed_sami")}
         </a>
+        {/* <a
+          href="http://linkedin.com/in/theahmadsami"
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: "#fff", textDecoration: "underline" }}
+        >
+          {t("ahmed_sami")}
+        </a> */}
       </div>
     </section>
   );
