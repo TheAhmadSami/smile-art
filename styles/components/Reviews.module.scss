@@ -9,18 +9,29 @@
 
     img {
       cursor: pointer;
-      width: 150px;
-      height: 150px;
+      width: 300px;
+      height: 300px;
       left: 516px;
       top: 86px;
       border-radius: 16px;
       object-fit: cover;
     }
 
+    video {
+      cursor: pointer;
+      width: 300px !important;
+      min-width: 300px;
+      height: 300px;
+      left: 516px;
+      top: 86px;
+      border-radius: 16px;
+      object-fit: contain;
+    }
+
     a {
       cursor: pointer;
-      width: 150px;
-      height: 150px;
+      width: 300px;
+      height: 300px;
       @include flex-center-center;
       border-radius: 16px;
       color: #000;

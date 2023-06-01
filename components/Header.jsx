@@ -1,25 +1,24 @@
-import React, { useState } from 'react'
-import { Menu } from '.';
+import React, { useState } from "react";
+import { Menu } from ".";
 
 //styles
 import styles from "@sa/styles/components/Header.module.scss";
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
-const Header = () => {
+const Header = ({ small }) => {
   const [t] = useTranslation();
   const lang = useSelector((state) => state.lang.value);
   const configs = useSelector((state) => state.configs.value);
-  const [drMagdy, showDrMagdy] = useState(false)
-
+  const [drMagdy, showDrMagdy] = useState(false);
 
   return (
     <section id="header">
-      <Menu />
+      <Menu small={small}/>
 
       <div className="header-content">
         <p className="header-title">
-          {lang == 'ar' ? configs?.titleAr : configs?.titleEn}
+          {lang == "ar" ? configs?.titleAr : configs?.titleEn}
         </p>
         <p className="header-desc">
           {lang == "en" ? configs?.aboutEn : configs?.aboutAr}
@@ -35,13 +34,18 @@ const Header = () => {
         </div>
       </div>
 
-      <div id="ceo-voice" className={`_ceo-voice_ ${drMagdy && 'active'}`}>
+      <div id="ceo-voice" className={`_ceo-voice_ ${drMagdy && "active"}`}>
         <div className="_ceo-voice_">
-          <div className="close" onClick={() => showDrMagdy(false)}><i className='fas fa-times'></i></div>
-          <div className='image' style={{ backgroundImage: 'url(dr-magdy.jpeg)'}}></div>
-          <p className="text" dir={lang == 'ar' ? 'rtl' : 'ltr'}>
-            {lang == 'ar' ? configs?.wordAr : configs?.wordEn}
-            <span>{t('dr_magdy')}</span>
+          <div className="close" onClick={() => showDrMagdy(false)}>
+            <i className="fas fa-times"></i>
+          </div>
+          <div
+            className="image"
+            style={{ backgroundImage: "url(dr-magdy.jpeg)" }}
+          ></div>
+          <p className="text" dir={lang == "ar" ? "rtl" : "ltr"}>
+            {lang == "ar" ? configs?.wordAr : configs?.wordEn}
+            <span>{t("dr_magdy")}</span>
           </p>
         </div>
       </div>
@@ -64,7 +68,7 @@ const Header = () => {
         href={configs?.youtubeVideo}
         target="_blank"
         rel="noreferrer"
-        dir={lang == 'en' ? 'ltr' : 'rtl'}
+        dir={lang == "en" ? "ltr" : "rtl"}
       >
         <i className="fas fa-play" />
       </a>
@@ -75,4 +79,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;

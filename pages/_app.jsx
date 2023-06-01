@@ -3,6 +3,7 @@ import "@sa/i18n";
 import { Provider } from "react-redux";
 import { store } from "@sa/redux/store";
 import Script from "next/script";
+import { Reservation } from "@sa/components";
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -20,6 +21,8 @@ const App = ({ Component, pageProps }) => {
           gtag('config', 'G-NBJ2R5NJFQ');
         `}
       </Script>
+
+      <Reservation />
 
       <Component {...pageProps} />
     </Provider>

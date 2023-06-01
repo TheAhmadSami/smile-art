@@ -1,0 +1,57 @@
+@import './../mixins';
+
+.articleContainer {
+  @include flex-start-start;
+  align-items: stretch;
+  background: #fff;
+
+  .articleArea {
+    width: 80%;
+    padding-bottom: 100px;
+    background: #fff
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    line-height: 1.5;
+  }
+
+
+  p {
+    font-size: 16px !important;
+  }
+
+  .relatedArticles {
+    color: var(--primary);
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .relatedArticlesContainer{
+    padding: 10px;
+    @include flex-start-start;
+    @include flex-wrap;
+    gap: 20px;
+
+    .articleItem {
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-align: center;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+  
+      &:hover,
+      &.active {
+        background: var(--primary);
+        color: #fff;
+      }
+    }
+  }
+}

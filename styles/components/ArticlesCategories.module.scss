@@ -1,0 +1,24 @@
+@import '@sa/styles/_mixins';
+
+.ArticlesCategories {
+  min-width: 200px;
+  background: #f0efef;
+  padding: 10px;
+  
+  .sectionTitle{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .categoryCard{
+    margin-top: 20px;
+    color: var(--primary);
+    margin-bottom: 5px;
+  }
+  
+  .articleItem{
+    cursor: pointer;
+    color: #000;
+    margin-bottom: 10px;
+  }
+}

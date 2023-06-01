@@ -1,8 +1,73 @@
+@import './../mixins';
+
 .articleCard {
   background: #fff;
   width: 300px;
-  height: 450px;
+  height: 250px;
   border-radius: 15px;
   padding: 10px;
   overflow: hidden;
+  @include flex;
+  @include flex-col;
+  justify-content: stretch;
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    line-height: 1.5;
+  }
+}
+
+.content {
+  flex: 1;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.fullContent {
+  flex: 1;
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #fff;
+    line-height: 1.5;
+  }
+
+  a {
+    color: var(--primary);
+  }
+}
+
+.knowMore {
+  color: var(--primary) !important;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.closeService {
+  min-width: 45px;
+  max-width: 45px;
+  min-height: 45px;
+  max-height: 45px;
+  border-radius: 100%;
+  background-color: #e8003e;
+  color: #fff;
+  @include flex-center-center;
+  cursor: pointer;
+  align-self: flex-end;
 }

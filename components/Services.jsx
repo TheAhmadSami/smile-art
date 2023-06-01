@@ -3,6 +3,10 @@ import { useTranslation } from "react-i18next";
 import { get } from "@sa/utils/axios";
 import Slider from "react-slick";
 import { Button, Modal, TextField } from "@mui/material";
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from "react-compare-slider";
 
 // Import css files
 import "slick-carousel/slick/slick.css";
@@ -41,13 +45,14 @@ const Services = () => {
 
   return (
     <section id="services">
-      <p className="section-title">{t("services")}</p>
+      <p className="section-title light">{t("services")}</p>
       <div className={styles.servicesDetails}>
         {services.length > 0 &&
           services?.map((service, index) => {
             return (
               <CustomCard
                 key={index}
+                isService={true}
                 image={service?.image}
                 title={lang == "en" ? service?.titleEn : service?.titleAr}
                 description={
@@ -70,7 +75,6 @@ const Services = () => {
         aria-describedby="modal-modal-description"
       >
         <div className="serviceModal">
-          {console.log(activeService)}
           <div
             className={styles.closeService}
             onClick={() => setModalStatus(false)}
@@ -94,7 +98,32 @@ const Services = () => {
               </div>
             </div>
           </div>
-          <Gallery />
+          <div className={styles.serviceImagesContainer}>
+            {activeService?.serviceImages?.length > 0 &&
+              activeService?.serviceImages?.map((image, index) => {
+                return (
+                  image?.image1 &&
+                  image?.image2 && (
+                    <div className="compare-card">
+                      <ReactCompareSlider
+                        itemOne={
+                          <ReactCompareSliderImage
+                            src={image?.image1}
+                            alt="Image one"
+                          />
+                        }
+                        itemTwo={
+                          <ReactCompareSliderImage
+                            src={image?.image2}
+                            alt="Image two"
+                          />
+                        }
+                      />
+                    </div>
+                  )
+                );
+              })}
+          </div>
         </div>
       </Modal>
     </section>

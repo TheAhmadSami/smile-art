@@ -3,28 +3,29 @@ import { useTranslation } from "react-i18next";
 
 import {
   Header,
-  FacebookFeed,
   Services,
   Team,
   Gallery,
-  Clients,
   SocialContacts,
   Footer,
   Contact,
-  Location,
-  InstagramFeed,
-  FacebookReviews,
-  GoogleReviews,
-  ArticleCard,
+  Reviews,
+  Articles,
 } from "@sa/components";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLang } from "@sa/redux/lang";
 import { get } from "@sa/utils/axios";
 import { setConfigs } from "@sa/redux/configs";
+import { Fab, Action } from "react-tiny-fab";
+import "react-tiny-fab/dist/styles.css";
 
 const Main = () => {
   const { t, i18n } = useTranslation();
+  const lang = useSelector((state) => state.lang.value);
+  const configs = useSelector((state) => state.configs.value);
+  const [categories, setCategories] = useState([]);
   const [articles, setArticles] = useState([]);
+  const [categoryId, setCategoryId] = useState(0);
   const dispatch = useDispatch();
   const getLang = () => {
     let lang = localStorage.getItem("lang");
@@ -51,39 +52,80 @@ const Main = () => {
     });
   };
 
-  const getArticles = () => {
-    get("/article").then((res) => {
-      setArticles(res?.data);
-    });
-  };
+  const social = [
+    {
+      icon: "fab fa-whatsapp",
+      href: `https://wa.me/${configs?.whatsapp}`,
+      name: configs?.whatsapp,
+      color: "#25D366",
+    },
+    {
+      icon: "far fa-phone-alt",
+      href: `tel: +2${configs?.phone}`,
+      name: configs?.phone,
+      color: "#d3ae55",
+    },
+    {
+      icon: "fab fa-facebook-messenger",
+      href: `http://m.me/smileArtDrMagdy`,
+      name: "@smileArtDrMagdy",
+      color: "#1877f2",
+    },
+  ];
 
   useEffect(() => {
     getLang();
     getConfigs();
-    getArticles();
   }, []);
 
   return (
     <div className="body-content">
+      {typeof window === "object" && (
+        <Fab
+          mainButtonStyles={{
+            background: "linear-gradient(to right, #d2ac52, #e8ce82)",
+            zIndex: 9999999,
+            left: 0,
+            right: "initial",
+          }}
+          style={{
+            left: lang == "ar" ? null : 0,
+            right: lang == "en" ? null : 0,
+            bottom: 0,
+          }}
+          icon={
+            <i className="fas fa-phone-alt" style={{ color: "var(--dark)" }} />
+          }
+        >
+          {social.map((item, i) => (
+            <Action
+              key={i}
+              text={item?.name}
+              style={{
+                background: item?.color,
+              }}
+            >
+              <a key={i} href={item?.href} target="_blank" rel="noreferrer">
+                <i
+                  className={item?.icon}
+                  style={{
+                    color: item?.frontColor ?? "#fff",
+                  }}
+                ></i>
+              </a>
+            </Action>
+          ))}
+        </Fab>
+      )}
+
       <SocialContacts />
       <Header />
 
-      <div id="feeds">
-        {articles?.length > 0 &&
-          articles?.map((article, index) => {
-            return <ArticleCard key={index} article={article} />
-})}
-      </div>
-
-      <div id="reviews">
-        <FacebookReviews />
-        <GoogleReviews />
-      </div>
-
       <Services />
+      <Articles />
       <Team />
       <Gallery hideTitle={false} />
-      <Location />
+      <Reviews />
       <Contact />
       <Footer />
     </div>

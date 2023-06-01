@@ -1,7 +1,10 @@
 @import './config.scss';
+@import "react-quill/dist/quill.snow.css";
+@import "swiper/swiper.css";
+
 
 /* OTHER VARIABLES ***********************************************/
-$menuWidth: 930px;
+$menuWidth: 950px;
 
 
 /* COLORS CODES ***********************************************/
@@ -243,6 +246,11 @@ section {
   right: -55px;
 }
 
+.swiper-slide {
+  display: flex !important;
+  justify-content: center;
+}
+
 @media(max-width: 700px) {
   section {
     padding: 20px 50px !important;
@@ -431,7 +439,7 @@ section {
 
   .menu {
     position: fixed;
-    z-index: 99999999;
+    z-index: 99;
     top: 20px;
     left: 50%;
     @include transform(translate(-50%));
@@ -445,6 +453,19 @@ section {
     opacity: 1;
     visibility: visible;
     @include transition3ms;
+
+    .book-now {
+      width: 80px;
+      height: 60px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #d2ac52, #e8ce82);
+      @include flex-center-center;
+      cursor: pointer;
+
+      &:hover {
+        background: var(--dark);
+      }
+    }
 
     .main-logo {
       position: absolute;
@@ -747,8 +768,9 @@ section {
     @include flex-center;
     position: absolute;
     z-index: 20;
-    bottom: 40px;
-    right: 40px;
+    bottom: 100px;
+    right: 50%;
+    transform: translateX(50%);
     width: 70px;
     height: 70px;
     border-radius: 100px;
@@ -761,7 +783,8 @@ section {
 
     &[dir='rtl'] {
       right: initial;
-      left: 40px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     &:hover {
@@ -1030,6 +1053,264 @@ section {
   margin-bottom: 50px;
 }
 
+/* #header ***********************************************/
+#article_header {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  min-height: 350px;
+  z-index: 10;
+  @include flex;
+  align-items: center;
+  padding-bottom: 0px;
+  background-image: url('./../assets//images//article-header.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // background: linear-gradient(to right, #d2ac52, #e8ce82);
+
+  &::after {
+    background: rgba(0, 0, 0, 0.5);
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  .menu {
+    position: fixed;
+    z-index: 99;
+    top: 20px;
+    left: 50%;
+    @include transform(translate(-50%));
+    padding: 0px 20px;
+    width: $menuWidth;
+    height: 110px;
+    background-color: $light;
+    border-radius: 20px;
+    box-shadow: 0 0 0 0 fade($dark, 30%);
+    @include flex-center;
+    opacity: 1;
+    visibility: visible;
+    @include transition3ms;
+
+    .book-now {
+      width: 80px;
+      height: 60px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #d2ac52, #e8ce82);
+      @include flex-center-center;
+      cursor: pointer;
+
+      &:hover {
+        background: var(--dark);
+      }
+    }
+
+    .main-logo {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 100%;
+      display: none;
+
+      img {
+        height: 80%;
+      }
+    }
+
+    ._menu_ {
+      @include flex-center;
+      height: 100%;
+      font-size: 13px;
+
+      .menu-item {
+        margin: 0px 10px;
+        z-index: 5;
+        white-space: nowrap;
+
+        a {
+          display: block;
+          padding: 5px 7px;
+          background-color: transparent;
+          border-radius: 100px;
+          color: $dark;
+          text-decoration: none;
+          cursor: default;
+
+          &:hover {
+            background-color: $primary;
+            color: $light;
+          }
+
+          &.active {
+            background-color: $primary;
+            color: $light;
+          }
+        }
+
+        &.logo {
+          height: 100%;
+          z-index: 3;
+
+          a {
+            border-radius: 0;
+            height: 100%;
+            @include flex-center;
+
+            img {
+              height: 80%;
+            }
+
+            &:hover {
+              background-color: transparent !important;
+            }
+          }
+        }
+
+        &.sub-menu {
+          position: relative;
+          z-index: 2;
+
+          ._sub-menu_ {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            background: transparent;
+            padding-top: 80px;
+            visibility: hidden;
+            opacity: 0;
+            @include transition3ms;
+
+            p {
+              display: block;
+              width: 100%;
+              height: auto;
+              max-height: 100%;
+              background: $light;
+              border-radius: 10px;
+              padding: 20px;
+              overflow-y: auto;
+              box-shadow: 0px 0px 10px 2px fade($black, 50%);
+              cursor: default;
+
+              span {
+                display: block;
+                width: 100%;
+                height: 30px;
+                background: $light;
+                text-transform: capitalize;
+                cursor: default;
+
+                a {
+                  width: 100%;
+                  height: 100%;
+                  @include flex-left;
+                  margin: 0px;
+                }
+              }
+            }
+          }
+
+          &:hover {
+
+            ._sub-menu_ {
+              padding-top: 40px;
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      z-index: 5;
+      top: 10px;
+      left: 0px;
+      width: 50px;
+      height: 50px;
+      background: $light;
+      cursor: pointer;
+      @include transition2ms;
+
+      i {
+        position: relative;
+        display: block;
+        width: 30px;
+        height: 2px;
+        background: $dark;
+        top: 50%;
+        left: 50%;
+        @include transition2ms;
+        @include transform(translateX(-50%) translateY(-50%));
+
+        &::before,
+        &::after {
+          position: absolute;
+          content: '';
+          display: block;
+          width: 30px;
+          height: 2px;
+          background: $dark;
+          @include transition2ms;
+          @include transform(rotate(0deg));
+        }
+
+        &::before {
+          top: -5px;
+        }
+
+        &::after {
+          top: 5px;
+        }
+      }
+
+
+    }
+
+    &.scroll {
+      top: 0;
+      width: 100% !important;
+      height: 70px;
+      border-radius: 0;
+      box-shadow: 0 0 5px 1px fade($dark, 30%);
+    }
+
+
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 9;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+    @include transition3ms;
+
+    .header-title {
+      width: 70%;
+      margin-bottom: 30px;
+      font-size: 5vw;
+      font-weight: 700;
+    }
+  }
+
+}
+
 /* .know-more ***********************************************/
 #know-more {
   @include flex-center;
@@ -1134,7 +1415,6 @@ section {
     }
   }
 }
-
 
 /* .ceo-voice ***********************************************/
 #ceo-voice {
@@ -1314,7 +1594,7 @@ section {
 #services {
   position: relative;
   z-index: 1;
-  background: $primary-grad;
+  background: var(--dark);
   width: 100%;
   height: auto;
   padding-bottom: 70px !important;
@@ -1369,13 +1649,21 @@ section {
 
 }
 
+#articles {
+  background: $primary-grad;
+}
+
+#gallery {
+  background: $primary-grad;
+}
+
 
 /* location ***********************************************/
 #location {
   padding: 0px !important;
   width: 100%;
-  height: 600px;
-  min-height: 650px;
+  height: 450px;
+  min-height: 450px;
 
   iframe {
     width: 100%;
@@ -1390,7 +1678,6 @@ section {
   width: 100%;
   margin-top: -100px;
   padding-top: 50px !important;
-
 
   .contact-container {
     margin-bottom: 100px !important;
@@ -1413,24 +1700,38 @@ section {
 
       .title {
         font-size: 40px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+      }
+
+      .branchesContainer {
+        @include flex-start-center;
+        @include flex-wrap;
+        margin: 10px 0;
+        gap: 10px;
+
+        .branchCard {
+          background: transparent;
+          border: 1px solid #fff;
+          border-radius: 5px;
+          padding: 3px 10px;
+          font-weight: 500;
+          color: #fff;
+          cursor: pointer;
+
+          &.active,
+          &:hover {
+            border: 1px solid var(--primary);
+            background: var(--primary);
+            color: #fff;
+          }
+        }
       }
 
       .address {
         display: flex;
         justify-content: flex-start;
         align-items: baseline;
-        margin-bottom: 50px;
-
-        i {
-          margin: 0 20px;
-        }
-      }
-
-      .phones {
-        @include flex-start-start;
-        align-items: baseline;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
 
         i {
           margin: 0 20px;
@@ -1441,18 +1742,30 @@ section {
           color: #fff;
           direction: ltr;
         }
+
+        a:hover {
+          text-decoration: underline;
+        }
       }
 
-      .note {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 0px 40px;
-        width: 100%;
-        opacity: .6;
-        font-size: 16px;
-        padding-bottom: 10px;
-        text-align: center;
+      .phones {
+        @include flex-start-start;
+        align-items: baseline;
+        margin-bottom: 10px;
+
+        i {
+          margin: 0 20px;
+        }
+
+        p,
+        a {
+          color: #fff;
+          direction: ltr;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
       }
 
       span {
@@ -1487,7 +1800,8 @@ section {
         }
 
         input,
-        textarea {
+        textarea,
+          {
           width: 100%;
           height: 30px;
           border: none;
@@ -1495,9 +1809,10 @@ section {
           border-radius: 15px;
           color: fade($black, 50%);
           background: $light;
-          opacity: .5;
+          // opacity: .5;
           padding: 0px 10px;
           @include transition2ms;
+          box-sizing: border-box;
 
           &:hover,
           &:focus,
@@ -1648,7 +1963,7 @@ section {
   }
 }
 
-@media(max-width: 700px) {
+@media(max-width: 850px) {
   #contact {
     margin-top: -15px !important;
     padding-left: 10px !important;
@@ -1795,7 +2110,7 @@ section {
 .serviceModal {
   width: 80%;
   height: 80%;
-  overflow-y: scroll;
+  overflow-y: auto;
   @include flex-start-center;
   @include flex-col;
   align-items: stretch;
@@ -1807,6 +2122,22 @@ section {
   transform: translate(-50%, -50%);
   padding: 20px;
   border-radius: 30px;
+}
+
+.articleModal {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  @include flex-start-center;
+  @include flex-col;
+  align-items: stretch;
+  gap: 20px;
+  background: var(--dark-90);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
 }
 
 @media(max-width: 700px) {
@@ -1823,4 +2154,369 @@ section {
     background-repeat: no-repeat;
     background-position: center;
   }
+}
+
+.ql-container {
+  border: none !important;
+}
+
+
+.floatingButton {
+  background: var(--primary);
+}
+
+
+.reservationContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-90);
+  z-index: 9999;
+  transform: scale(0);
+  transition: all .3s;
+  overflow-y: auto;
+
+  &.active {
+    transform: scale(1);
+  }
+}
+
+
+/* location ***********************************************/
+#reservation {
+  position: relative;
+  z-index: 7;
+  width: 100%;
+  padding-top: 50px !important;
+
+
+  .reservation-container {
+    margin-bottom: 100px !important;
+    display: table;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px 3px fade($black, 30%);
+    position: relative;
+
+    .closeBooking {
+      min-width: 45px;
+      max-width: 45px;
+      min-height: 45px;
+      max-height: 45px;
+      border-radius: 100%;
+      background-color: #e8003e;
+      color: #fff;
+      @include flex-center-center;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 999;
+    }
+
+    .left-side {
+      display: table-cell;
+      width: 35%;
+      background: $dark-grad;
+      color: $light;
+      padding: 40px;
+      font-weight: 300;
+      line-height: 1.6;
+      padding-bottom: 60px;
+      position: relative;
+
+      .title {
+        font-size: 40px;
+        margin-bottom: 30px;
+      }
+
+      .address {
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
+        margin-bottom: 50px;
+
+        i {
+          margin: 0 20px;
+        }
+      }
+
+      .phones {
+        @include flex-start-start;
+        align-items: baseline;
+        margin-bottom: 50px;
+
+        i {
+          margin: 0 20px;
+        }
+
+        p,
+        a {
+          color: #fff;
+          direction: ltr;
+        }
+      }
+
+      .note {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0px 40px;
+        width: 100%;
+        opacity: .6;
+        font-size: 16px;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+
+      span {
+        font-weight: 400;
+        color: $primary;
+      }
+
+    }
+
+    .right-side {
+      display: table-cell;
+      width: 65%;
+      background: $primary-grad;
+      color: $light;
+      padding: 40px;
+      font-weight: 300;
+
+      .title {
+        font-size: 40px;
+        margin-bottom: 30px;
+      }
+
+      .input-container {
+        position: relative;
+        width: 100%;
+        margin-bottom: 30px;
+
+        label {
+          display: block;
+          margin: 0px 0px 10px 10px;
+          font-weight: 700;
+        }
+
+        input,
+        textarea,
+        select {
+          width: 100%;
+          height: 30px;
+          border: none;
+          outline: none;
+          border-radius: 15px;
+          color: fade($black, 50%);
+          background: $light;
+          // opacity: .5;
+          padding: 0px 10px;
+          @include transition2ms;
+          box-sizing: border-box;
+
+          &:hover,
+          &:focus,
+          &:active {
+            background-color: $light;
+            opacity: 1;
+            color: $black;
+          }
+
+          &.not-valid {
+            color: $light;
+            background-color: fade($red, 100%);
+          }
+        }
+
+
+        textarea {
+          height: 70px;
+          min-height: 70px;
+          max-height: 140px;
+          resize: vertical;
+          padding: 10px;
+          @include transition(background .2s);
+        }
+
+
+        &.reciver {
+          @include flex-center;
+
+          p {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 15px;
+            width: 40%;
+            height: 30px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            background: rgba($dark, 20%);
+            color: $light;
+            @include transition2ms;
+          }
+
+          select {
+            width: 60%;
+            height: 30px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            outline: none;
+            border: none;
+            padding-left: 15px;
+            @include transition2ms;
+          }
+        }
+
+      }
+
+      .buttonContainer {
+        position: relative;
+        width: 100%;
+        margin-bottom: 30px;
+        @include flex;
+        justify-content: flex-end;
+
+        .submit-message {
+          align-self: left;
+          width: 42px;
+          height: 42px;
+          border-radius: 100%;
+          border: none;
+          background-color: $dark;
+          outline: none;
+          color: $light;
+          @include transition(.2);
+
+          &.sent {
+            background-color: $light;
+            border-color: $light;
+            color: $green;
+            opacity: 1;
+          }
+
+          &.error {
+            background-color: $red;
+            border-color: $red;
+            color: $light;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* contact media |||||||||||||||||||||||||||||||||||||||||||*/
+@media(max-width: 1170px) {
+  #reservation {
+    .left-side {
+      width: 45% !important;
+    }
+
+    .right-side {
+      width: 55% !important;
+
+      .reciver {
+        p {
+          width: 50% !important;
+        }
+
+        select {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 1040px) {
+  #reservation {
+    .left-side {
+      width: 45% !important;
+    }
+
+    .right-side {
+      width: 55% !important;
+
+      .reciver {
+        flex-direction: column;
+
+        p {
+          width: 100% !important;
+          border-radius: 0 !important;
+          border-top-left-radius: 15px !important;
+          border-top-right-radius: 15px !important;
+        }
+
+        select {
+          width: 100% !important;
+          border-radius: 0 !important;
+          border-bottom-left-radius: 15px !important;
+          border-bottom-right-radius: 15px !important;
+
+          &:focus,
+          &:active {
+            border-radius: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 700px) {
+  #reservation {
+    margin-top: -15px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+
+    .reservation-container {
+      display: flex !important;
+      flex-direction: column !important;
+
+      .left-side {
+        width: 100% !important;
+
+        .title {
+          font-size: 30px !important;
+        }
+
+        .address,
+        .phones {
+          margin-bottom: 20px !important;
+          font-size: 14px !important;
+        }
+      }
+
+      .right-side {
+        width: 100% !important;
+
+        .title {
+          font-size: 30px !important;
+        }
+
+        .input-container {
+          textarea {
+            min-height: 200px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ql-editor .ql-video {
+  border-radius: 10px;
+}
+
+.compare-card {
+  width: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  direction: ltr;
 }

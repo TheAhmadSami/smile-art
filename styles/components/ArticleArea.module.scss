@@ -1,0 +1,8 @@
+@import '@sa/styles/_mixins';
+
+.feedsContainer{
+  @include flex-start-center;
+  @include flex-wrap;
+  gap: 20px;
+  height: 400px;
+}

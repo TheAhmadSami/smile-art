@@ -3,6 +3,7 @@
 .teamDetails {
   @include flex-start-start;
   @include flex-wrap;
+  align-items: stretch;
   gap: 15px;
   margin: 20px 0;
 }

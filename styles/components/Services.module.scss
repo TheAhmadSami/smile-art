@@ -19,6 +19,7 @@
   @include flex-center-center;
   cursor: pointer;
   align-self: flex-end;
+  position: absolute;
 }
 
 .serviceContent {
@@ -38,25 +39,34 @@
     background-size: cover;
     border-radius: 10px;
     pointer-events: none;
+    border: 2px solid var(--primary);
   }
 
   .title {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 20px;
     color: #b38f22;
     pointer-events: none;
+    margin-bottom: 10px;
+    ;
   }
 
   .desc {
     width: 70%;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     color: #333333;
-    line-height: 1.3;
+    line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     pointer-events: none;
   }
+}
+
+.serviceImagesContainer{
+  @include flex-center-start;
+  @include flex-wrap;
+  gap: 20px;
 }

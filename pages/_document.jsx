@@ -66,7 +66,6 @@ const Document = (props) => {
       <body>
         <Main />
         <NextScript />
-
       </body>
     </Html>
   );

@@ -51,5 +51,16 @@
   "why_smileart": "لماذا سمايل آرت؟",
   "google_reviews": "آراء العملاء (جوجل)",
   "facebook_reviews": "آراء العملاء (فيسبوك)",
-  "reviews": "آراء العملاء"
+  "reviews": "آراء العملاء",
+  "articles": "المقالات",
+  "related_articles": "مقالات ذات صلة",
+  "service": "الخدمة",
+  "name_required": "يجب كتابة الاسم",
+  "phone_required": "يجب كتابة رقم الهاتف",
+  "email_required": "يجيب كتابة الايميل",
+  "message_required": "يجب كتابة رسالة",
+  "email_sent_error": "خطأ. يرجى المحالولة في وقت لاحق",
+  "email_sent_success": "تم الارسال بنجاح",
+  "branches": "الفروع",
+  "workhours": "أوقات العمل"
 }

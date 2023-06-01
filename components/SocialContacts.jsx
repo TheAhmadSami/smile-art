@@ -1,13 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useEffect } from "react";
-import { Button, Modal, TextField } from "@mui/material";
-import SimpleImageSlider from "react-simple-image-slider";
-import { get } from "@sa/utils/axios";
-import Slider from "react-slick";
-
-// Import css files
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React from "react";
 
 //translation
 import { useTranslation } from "react-i18next";
@@ -22,16 +14,7 @@ const SocialContacts = () => {
   const lang = useSelector((state) => state.lang.value);
 
   const social = [
-    {
-      icon: "fab fa-whatsapp",
-      href: `https://wa.me/${configs?.whatsapp}`,
-      color: "#25D366",
-    },
-    {
-      icon: "far fa-phone-alt",
-      href: `tel: +2${configs?.phone}`,
-      color: "#d3ae55",
-    },
+
     {
       icon: "fab fa-facebook-f",
       href: configs?.facebook,
@@ -66,7 +49,7 @@ const SocialContacts = () => {
   ];
 
   return (
-    <div id={styles.contacts} dir={lang == 'en' ? 'ltr' : 'rtl'}>
+    <div id={styles.contacts} dir={lang == "en" ? "ltr" : "rtl"}>
       {social.map((item, i) => (
         <a
           key={i}
