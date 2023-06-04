@@ -1,41 +1,39 @@
 @import '@sa/styles/_mixins';
 
-#reviews {
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 20px 0;
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
 
-    img {
-      cursor: pointer;
-      width: 300px;
-      height: 300px;
-      left: 516px;
-      top: 86px;
-      border-radius: 16px;
-      object-fit: cover;
-    }
+  img {
+    cursor: pointer;
+    width: 300px;
+    height: 300px;
+    left: 516px;
+    top: 86px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
 
-    video {
-      cursor: pointer;
-      width: 300px !important;
-      min-width: 300px;
-      height: 300px;
-      left: 516px;
-      top: 86px;
-      border-radius: 16px;
-      object-fit: contain;
-    }
+  .video {
+    cursor: pointer;
+    width: 300px !important;
+    min-width: 300px;
+    left: 516px;
+    top: 86px;
+    border-radius: 12px;
+    overflow: hidden;
+    object-fit: contain;
+  }
 
-    a {
-      cursor: pointer;
-      width: 300px;
-      height: 300px;
-      @include flex-center-center;
-      border-radius: 16px;
-      color: #000;
-      background-color: #fff;
-    }
+  a {
+    cursor: pointer;
+    width: 300px;
+    height: 300px;
+    @include flex-center-center;
+    border-radius: 16px;
+    color: #000;
+    background-color: #fff;
   }
 }
