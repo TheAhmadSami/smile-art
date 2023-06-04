@@ -7,11 +7,11 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import moment from "moment";
 
-const ArticleHeader = ({ small, title, date }) => {
+const ArticleHeader = ({ small, title, date, cover }) => {
   const [t] = useTranslation();
 
   return (
-    <section id="article_header">
+    <section id="article_header" style={{backgroundImage: `url(${cover})`}}>
       <ArticleMenu small={small} />
 
       <div className="header-content">

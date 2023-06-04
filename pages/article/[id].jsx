@@ -9,7 +9,7 @@ import {
   ArticleHeader,
   ArticlesCategories,
 } from "@sa/components";
-import { domain } from "@sa/utils/axios";
+import { domain, mediaLink } from "@sa/utils/axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setLang } from "@sa/redux/lang";
 import { get } from "@sa/utils/axios";
@@ -102,6 +102,7 @@ const Article = ({ configs }) => {
         small
         gold
         title={lang == "ar" ? article?.titleAr : article?.titleEn}
+        cover={configs?.articleImage ?? `${mediaLink}/article-image.jpg`}
         date={article?.createdAt}
       />
       <div className={styles.articleContainer}>
