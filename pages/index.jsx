@@ -11,6 +11,7 @@ import {
   Contact,
   Reviews,
   Articles,
+  Meta,
 } from "@sa/components";
 import { useDispatch, useSelector } from "react-redux";
 import { setLang } from "@sa/redux/lang";
@@ -19,14 +20,11 @@ import { setConfigs } from "@sa/redux/configs";
 import { Fab, Action } from "react-tiny-fab";
 import "react-tiny-fab/dist/styles.css";
 
-const Main = () => {
+const Main = ({ configs }) => {
   const { t, i18n } = useTranslation();
   const lang = useSelector((state) => state.lang.value);
-  const configs = useSelector((state) => state.configs.value);
-  const [categories, setCategories] = useState([]);
-  const [articles, setArticles] = useState([]);
-  const [categoryId, setCategoryId] = useState(0);
   const dispatch = useDispatch();
+  dispatch(setConfigs(configs));
   const getLang = () => {
     let lang = localStorage.getItem("lang");
     if (lang) {
@@ -44,12 +42,6 @@ const Main = () => {
       localStorage.setItem("lang", "en");
     }
     dispatch(setLang(lang ? lang : "en"));
-  };
-
-  const getConfigs = () => {
-    get("/configs").then((res) => {
-      dispatch(setConfigs(res?.data[0]));
-    });
   };
 
   const social = [
@@ -75,11 +67,11 @@ const Main = () => {
 
   useEffect(() => {
     getLang();
-    getConfigs();
   }, []);
 
   return (
     <div className="body-content">
+      <Meta keywords={configs?.keywords} />
       {typeof window === "object" && (
         <Fab
           mainButtonStyles={{
@@ -117,10 +109,8 @@ const Main = () => {
           ))}
         </Fab>
       )}
-
       <SocialContacts />
       <Header />
-
       <Services />
       <Articles />
       <Team />
@@ -133,3 +123,14 @@ const Main = () => {
 };
 
 export default Main;
+
+export const getServerSideProps = async (context) => {
+
+  let configs = await get("/configs").then((res) => res?.data);
+
+  return {
+    props: {
+      configs: configs?.[0],
+    },
+  };
+};

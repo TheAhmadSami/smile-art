@@ -21,15 +21,14 @@ import "react-quill/dist/quill.snow.css";
 
 import styles from "@sa/styles/components/Article.module.scss";
 
-const Article = () => {
+const Article = ({ configs }) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
+  dispatch(setConfigs(configs));
   const lang = useSelector((state) => state.lang.value);
-  const [articles, setArticles] = useState([]);
   const [article, setArticle] = useState(null);
   const [categoryId, setCategoryId] = useState(0);
   const [categories, setCategories] = useState([]);
-
 
   const getLang = () => {
     let lang = localStorage.getItem("lang");
@@ -65,18 +64,10 @@ const Article = () => {
     });
   };
 
-
-  const getConfigs = () => {
-    get("/configs").then((res) => {
-      dispatch(setConfigs(res?.data[0]));
-    });
-  };
-
   useEffect(() => {
     getLang();
     getArticle();
     getCategories();
-    getConfigs();
   }, []);
 
   const modules = {
@@ -103,7 +94,6 @@ const Article = () => {
     "direction",
     "color",
   ];
-
 
   return (
     <div className="body-content">
@@ -153,3 +143,13 @@ const Article = () => {
 };
 
 export default Article;
+
+export const getServerSideProps = async (context) => {
+  let configs = await get("/configs").then((res) => res?.data);
+
+  return {
+    props: {
+      configs: configs?.[0],
+    },
+  };
+};

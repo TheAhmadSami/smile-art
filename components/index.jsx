@@ -20,3 +20,4 @@ export { default as ArticlesCategories } from "./ArticlesCategories";
 export { default as ArticleMenu } from "./ArticleMenu";
 export { default as Carousal } from "./Carousal";
 export { default as Reservation } from "./Reservation";
+export { default as Meta } from "./Meta";

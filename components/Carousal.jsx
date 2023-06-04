@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
 import { Swiper } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper";
+
 import "swiper/css";
 import "swiper/swiper.min.css";
 
@@ -17,10 +19,6 @@ const Carousal = ({ children, swiperOptions }) => {
 
   swiperOptions = swiperOptions ?? {
     spaceBetween: 5,
-    navigation: true,
-    pagination: { clickable: true },
-    autoplay: true,
-
     breakpoints: {
       1500: {
         slidesPerView: 4,
@@ -41,7 +39,18 @@ const Carousal = ({ children, swiperOptions }) => {
     },
   };
   return (
-    <Swiper {...swiperOptions}>
+    <Swiper
+      {...swiperOptions}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={true}
+      modules={[Autoplay, Pagination, Navigation]}
+    >
       {children}
     </Swiper>
   );
