@@ -34,7 +34,7 @@ const Services = () => {
   const mystyle = "linear-gradient(267.04deg, #5F818C, #98B8C0)";
 
   const loadServices = () => {
-    get("/services").then((res) => {
+    get("/serv").then((res) => {
       setServices(res.data);
     });
   };

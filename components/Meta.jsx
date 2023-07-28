@@ -8,9 +8,9 @@ export default function Meta({ title, description, keywords, url, image }) {
       <meta name="keywords" content={keywords} />
 
       <link rel="canonical" href={url} />
-      <link rel="shortcut icon" href="/favicon.ico" />
-      <link rel="icon" sizes="192x192" href="/favicon.ico"></link>
-      <link rel="apple-touch-icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href="/logo.png" />
+      <link rel="icon" sizes="192x192" href="/logo.png"></link>
+      <link rel="apple-touch-icon" href="/logo.png" />
 
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />

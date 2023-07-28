@@ -80,7 +80,7 @@ const Reservation = () => {
   };
 
   const loadServices = () => {
-    get("/services").then((res) => {
+    get("/serv").then((res) => {
       setServiceId(res.data?.[0]?.id);
       setServices(res.data);
     });
