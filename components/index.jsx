@@ -6,6 +6,7 @@ export { default as Services } from "./Services";
 export { default as CustomCard } from "./CustomCard";
 export { default as Team } from "./Team";
 export { default as Gallery } from "./Gallery";
+export { default as BeforeAfter } from "./BeforeAfter";
 export { default as Clients } from "./Clients";
 export { default as SocialContacts } from "./SocialContacts";
 export { default as Footer } from "./Footer";

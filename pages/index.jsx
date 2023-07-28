@@ -12,6 +12,7 @@ import {
   Reviews,
   Articles,
   Meta,
+  BeforeAfter,
 } from "@sa/components";
 import { useDispatch, useSelector } from "react-redux";
 import { setLang } from "@sa/redux/lang";
@@ -115,6 +116,7 @@ const Main = ({ configs }) => {
       <Articles />
       <Team />
       <Gallery hideTitle={false} />
+      <BeforeAfter/>
       <Reviews />
       <Contact />
       <Footer />

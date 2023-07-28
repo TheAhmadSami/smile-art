@@ -15,7 +15,7 @@ import { SectionTitle } from "@sa/components";
 //styles
 import styles from "@sa/styles/components/Gallery.module.scss";
 
-const Gallery = ({ hideTitle }) => {
+const BeforeAfter = ({ hideTitle }) => {
   const { t } = useTranslation();
   const lang = useSelector((state) => state.lang.value);
   const [albums, setAlbums] = useState(false);
@@ -24,7 +24,7 @@ const Gallery = ({ hideTitle }) => {
   const [image, setImage] = useState("");
 
   const loadAlbums = async () => {
-    get("/albums").then((res) => {
+    get("/before-after").then((res) => {
       setAlbums(res.data);
     });
   };
@@ -63,28 +63,27 @@ const Gallery = ({ hideTitle }) => {
   if (albums?.length > 0) {
     return (
       <section id="gallery">
-        <p className="section-title light">{t("gallery")}</p>
+        <p className="section-title light">{t("before_after")}</p>
         <div id={styles["gallery"]} className="__page">
           <div className={styles.content}>
             {albums.length > 0 &&
               albums?.map((album, index) => {
-                if (album?.images?.length > 0) {
+                if (album?.beforeAfterImages?.length > 0) {
                   return (
                     <div key={index}>
                       <div className={styles.albumTitle}>
                         <p>{lang == "en" ? album?.nameEn : album?.nameAr}</p>
-                        <p>{t("view_more")}</p>
                       </div>
                       <div className={styles.imagesContainer}>
-                        {album?.images?.length > 0 &&
-                          album?.images?.map((image) => (
+                        {album?.beforeAfterImages?.length > 0 &&
+                          album?.beforeAfterImages?.map((image) => (
                             <img
                               key={index}
                               src={image?.url}
                               className={styles.img}
                               alt="Smile Art"
                               onClick={() => {
-                                setActiveImages(album?.images);
+                                setActiveImages(album?.beforeAfterImages);
                                 setTimeout(() => {
                                   setImageModal(true);
                                 }, 300);
@@ -122,4 +121,4 @@ const Gallery = ({ hideTitle }) => {
   }
 };
 
-export default Gallery;
+export default BeforeAfter;
