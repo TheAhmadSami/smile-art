@@ -73,7 +73,7 @@ const Gallery = ({ hideTitle }) => {
                     <div key={index}>
                       <div className={styles.albumTitle}>
                         <p>{lang == "en" ? album?.nameEn : album?.nameAr}</p>
-                        <p>{t("view_more")}</p>
+                        {/* <p>{t("view_more")}</p> */}
                       </div>
                       <div className={styles.imagesContainer}>
                         {album?.images?.length > 0 &&

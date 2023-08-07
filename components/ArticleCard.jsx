@@ -4,8 +4,6 @@ import { useTranslation } from "react-i18next";
 //styles
 import styles from "@sa/styles/components/ArticleCard.module.scss";
 import { useSelector } from "react-redux";
-import { Modal } from "@mui/material";
-import { domain } from "@sa/utils/axios";
 
 const ReactQuill =
   typeof window === "object" ? require("react-quill") : () => false;
@@ -55,7 +53,7 @@ const ArticleCard = ({ article }) => {
         />
       </div>
       <a
-        href={`${domain}/article/${article?.id}`}
+        href={`/article/${article?.id}`}
         target="_blank"
         rel="noreferrer"
         className={styles.knowMore}

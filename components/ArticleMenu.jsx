@@ -8,7 +8,6 @@ import assets from "@sa/assets";
 import { useTranslation } from "react-i18next";
 import { changeLang } from "@sa/utils/changeLanguage";
 import { useDispatch, useSelector } from "react-redux";
-import { domain } from "@sa/utils/axios";
 import { setReservation } from "@sa/redux/reservation";
 
 const ArticleMenu = ({ small }) => {
@@ -20,15 +19,15 @@ const ArticleMenu = ({ small }) => {
   const [menuItems, setMenuItems] = useState([
     {
       label: "home",
-      href: `${domain}/`,
+      href: `/`,
     },
     {
       label: "reviews",
-      href: `${domain}/#reviews`,
+      href: "/#reviews",
     },
     {
       label: "team",
-      href: `${domain}/#team`,
+      href: "/#team",
     },
     {
       label: "logo",
@@ -37,11 +36,11 @@ const ArticleMenu = ({ small }) => {
     },
     {
       label: "services",
-      href: `${domain}/#services`,
+      href: "/#services",
     },
     {
       label: "gallery",
-      href: `${domain}/#gallery`,
+      href: "/#gallery",
     },
     {
       label: "contact_us",

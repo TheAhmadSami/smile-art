@@ -145,7 +145,7 @@ const Contacts = () => {
                     <i className="fas fa-phone-alt" />
                     <p>
                       <a href={`tel: ${activeBranch?.phone2}`}>
-                        {activeBranch?.phone1}
+                        {activeBranch?.phone2}
                       </a>
                     </p>
                   </div>
@@ -155,7 +155,7 @@ const Contacts = () => {
                     <i className="fas fa-phone-alt" />
                     <p>
                       <a href={`tel: ${activeBranch?.phone3}`}>
-                        {activeBranch?.phone1}
+                        {activeBranch?.phone3}
                       </a>
                     </p>
                   </div>

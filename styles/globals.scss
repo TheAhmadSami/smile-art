@@ -1737,14 +1737,14 @@ section {
         align-items: baseline;
         margin-bottom: 10px;
 
-        i {
-          margin: 0 20px;
+        i{
+          margin: 0 10px;
         }
 
         p,
-        a {
+        a,
+        i {
           color: #fff;
-          direction: ltr;
         }
 
         a:hover {

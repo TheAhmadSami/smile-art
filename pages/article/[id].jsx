@@ -9,7 +9,7 @@ import {
   ArticleHeader,
   ArticlesCategories,
 } from "@sa/components";
-import { domain, mediaLink } from "@sa/utils/axios";
+import { mediaLink } from "@sa/utils/axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setLang } from "@sa/redux/lang";
 import { get } from "@sa/utils/axios";
@@ -124,7 +124,7 @@ const Article = ({ configs }) => {
                   category?.id == categoryId &&
                   category?.articles?.map((article, i) => (
                     <a
-                      href={`${domain}/article/${article?.id}`}
+                      href={`/article/${article?.id}`}
                       key={i}
                       className={styles.articleItem}
                     >

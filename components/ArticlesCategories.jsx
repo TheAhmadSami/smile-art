@@ -6,7 +6,6 @@ import styles from "@sa/styles/components/ArticlesCategories.module.scss";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { get } from "@sa/utils/axios";
-import { domain } from "@sa/utils/axios";
 
 const ArticlesCategories = ({ onClick }) => {
   const [t] = useTranslation();
@@ -36,7 +35,7 @@ const ArticlesCategories = ({ onClick }) => {
               {category?.articles?.map((article, i) => (
                 <p key={i}>
                   <a
-                    href={`${domain}/article/${article?.id}`}
+                    href={`/article/${article?.id}`}
                     className={styles.articleItem}
                   >
                     {lang == "ar" ? article?.titleAr : article?.titleEn}
