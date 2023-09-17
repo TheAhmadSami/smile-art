@@ -66,14 +66,14 @@ const Reviews = () => {
               reviews?.map((item, index) => {
                 return (
                   item.type == "image" && (
-                    <SwiperSlide key={index}>
+                    <div key={index}>
                       <img
                         src={`${mediaLink}/reviews/${item?.url}`}
                         className={styles.img}
                         alt="Smile Art"
                         onClick={() => setImageModal(true)}
                       />
-                    </SwiperSlide>
+                    </div>
                   )
                 );
               })}
@@ -85,7 +85,7 @@ const Reviews = () => {
               reviews?.map((item, index) => {
                 return (
                   item.type == "video" && (
-                    <SwiperSlide key={index}>
+                    <div key={index}>
                       <div className={styles.video}>
                         <iframe
                           src={item?.url}
@@ -94,7 +94,7 @@ const Reviews = () => {
                           allowfullscreen
                         ></iframe>
                       </div>
-                    </SwiperSlide>
+                    </div>
                   )
                 );
               })}

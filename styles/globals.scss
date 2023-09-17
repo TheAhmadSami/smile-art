@@ -1737,7 +1737,7 @@ section {
         align-items: baseline;
         margin-bottom: 10px;
 
-        i{
+        i {
           margin: 0 10px;
         }
 
@@ -2523,4 +2523,8 @@ section {
   overflow: hidden;
   border-radius: 10px;
   direction: ltr;
+}
+
+.slick-slider {
+  width: 100%;
 }

@@ -1,59 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
-import { Swiper } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import Slider from "react-slick";
 
-import "swiper/css";
-import "swiper/swiper.min.css";
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-//translation
-import { useTranslation } from "react-i18next";
+const Carousal = ({ children }) => {
 
-//components
-import { SectionTitle } from "@sa/components";
+  const [slidesCount, setSlidesCount] = useState(1);
+  useEffect(() => {}, []);
 
-//styles
-import styles from "@sa/styles/components/Reviews.module.scss";
-
-const Carousal = ({ children, swiperOptions }) => {
-
-  swiperOptions = swiperOptions ?? {
-    spaceBetween: 5,
-    breakpoints: {
-      1500: {
-        slidesPerView: 4,
-      },
-      1250: {
-        slidesPerView: 3,
-      },
-
-      825: {
-        slidesPerView: 2,
-      },
-      480: {
-        slidesPerView: 1,
-      },
-      0: {
-        slidesPerView: 1,
-      },
-    },
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: slidesCount,
+    responsive: [],
   };
-  return (
-    <Swiper
-      {...swiperOptions}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
-      pagination={{
-        clickable: true,
-      }}
-      navigation={true}
-      modules={[Autoplay, Pagination, Navigation]}
-    >
-      {children}
-    </Swiper>
-  );
+  return <Slider {...settings}>{children}</Slider>;
 };
 
 export default Carousal;
