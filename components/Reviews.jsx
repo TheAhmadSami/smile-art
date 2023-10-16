@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
 import { get, mediaLink } from "@sa/utils/axios";
-import { SwiperSlide } from "swiper/react";
 
 //translation
 import { useTranslation } from "react-i18next";
@@ -39,21 +38,7 @@ const Reviews = () => {
     loadReviews();
   }, []);
 
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  
 
   return (
     <section id="reviews">
